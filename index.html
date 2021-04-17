@@ -9,16 +9,19 @@
       }
       table {
         border-collapse: collapse;
+        width: 500px;
       }
       .info{
         width: 500px;
         margin-top: 125px;
         border: 3px solid orange;
-        background:#fbd58f;
+        background: #ffebcd;
+        padding: 50px;
       }
       .main{ 
         display: flex;
         align-items: center;
+        justify-content: center;
         flex-direction: column;
       }
       .head{
@@ -26,9 +29,25 @@
         color: orange;
         border: 3px solid orange;
         font-size: 36px;
+        padding: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
       }
       body{
         background-image:url(background.png);
+        background-size: cover;
+      }
+      .wi100 {
+        width: 1000px;
+      }
+      .blue {
+        background-color: #00ffff;
+      }
+      .green {
+        background-color: #99ff99;
+      }
+      .orange {
+        background-color: #fbd58f;
       }
     </style>
   </head>
@@ -40,27 +59,27 @@
       <div class="info">
         <table>
           <tr>
-            <td colspan="4">Понедельник</td>
+            <td colspan="4" class="green">Понедельник</td>
           </tr>
-          <tr>
-            <td>1 A</td>
+          <tr class="orange">
+            <td class="wi100">1 A</td>
             <td>2 A</td>
             <td>3 A</td>
             <td>4 A</td>
           </tr>
-          <tr>
+          <tr class="blue">
             <td>Русский</td>
             <td>Музыка</td>
             <td>Чтение</td>
             <td>Математика</td>
           </tr>
-          <tr>
+          <tr class="blue">
             <td>Математика</td>
             <td>Русский</td>
             <td>Физ-ра</td>
             <td>Чтение</td>
           </tr>
-          <tr>
+          <tr class="blue">
             <td>Труд</td>
             <td>Математика</td>
             <td>Русский</td>
@@ -73,7 +92,9 @@
             <td>Англ.яз.</td>
           </tr>
           <tr>
-            <td colspan="4"></td>
+            <td colspan="4">
+              &nbsp;
+            </td>
           </tr>
           <tr>
             <td>1 Б</td>
