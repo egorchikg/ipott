@@ -75,8 +75,8 @@ INSERT INTO interval VALUES(1,"09:30","10:20");
 INSERT INTO interval VALUES(2,"10:30","11:20");
 INSERT INTO interval VALUES(3,"11:30","12:20");
 --
-INSERT INTO class VALUES("1 A","");
-INSERT INTO class VALUES("1 Б","");
+INSERT INTO class VALUES("1 A","1 A");
+INSERT INTO class VALUES("1 Б","1 Б");
 INSERT INTO class VALUES("1 В","");
 INSERT INTO class VALUES("2 А","");
 INSERT INTO class VALUES("2 Б","");
@@ -102,13 +102,13 @@ INSERT INTO class VALUES("8 В","");
 INSERT INTO class VALUES("9 А","");
 INSERT INTO class VALUES("9 Б","");
 INSERT INTO class VALUES("9 В","");
-INSERT INTO class VALUES("10 Технологический профиль","");
+INSERT INTO class VALUES("10 Технологический профиль","10 ТП");
 INSERT INTO class VALUES("10 Универсальный профиль","");
 INSERT INTO class VALUES("11 Технический профиль","");
 INSERT INTO class VALUES("11 Универсальный профиль","");
 INSERT INTO class VALUES("Подготовительная группа","");
 --
-INSERT INTO teacher VALUES("","");
+INSERT INTO teacher VALUES("Гаврюшина Любовь Сергеевна","Гаврюшина ЛС");
 INSERT INTO teacher VALUES("","");
 INSERT INTO teacher VALUES("","");
 INSERT INTO teacher VALUES("","");
