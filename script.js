@@ -34,4 +34,4 @@ function keydown(event) {
 }
 //
 document.addEventListener("keydown",keydown);
-setInterval(next, 3000);
+setInterval(next, 15000);

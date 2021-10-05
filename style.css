@@ -4,7 +4,7 @@
   --color3: #0A3A75;
   --color4: #518FD9 ;
   --color6: #FFCE80;
-  --lh: 11px;
+  --lh: 9px;
 }
 td {
   text-align: center;
@@ -17,16 +17,19 @@ table {
   width: 100%;
 }
 .info{
-  width: calc(var(--lh)*34);
+  width: calc(var(--lh)*32);
   background: var(--color2);
-  padding: 50px;
+  padding: calc(var(--lh)*1);
+  padding-bottom: none;
 }
 .main{ 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
   height: 100vh;
+  padding: calc(var(--lh)*1);
 }
 .head{
   margin-top: 50px;
@@ -41,7 +44,7 @@ body{
   background-color: var(--color2);
   background-size: cover;
   color: var(--color6);
-  font-family: Arial;
+  font-family: "Hack";
   margin: 0;
   font-size: calc(var(--lh)*1.2);
   overflow: hidden;
