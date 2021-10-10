@@ -2,8 +2,11 @@
   --color1: #1E62B3;
   --color2: #325987;
   --color3: #0A3A75;
-  --color4: #518FD9 ;
-  --color6: #FFCE80;
+  /*--color4: #518FD9;*/
+  --color4: #5B67DD;
+  /*--color6: #FFCE80;*/
+  --color6: #FFDAA0;
+  --color7: #F398B1;
   --lh: 9px;
 }
 td {
@@ -50,10 +53,10 @@ table {
   overflow: visible;
 }
 .page:nth-child(2n) {
-  background-color: #fedbac;
+  background-color: var(--color6);
 }
 .page:nth-child(2n+1) {
-  background-color: #bacfed;
+  background-color: var(--color2);
 }
 .book {
   padding: 0;
@@ -61,7 +64,7 @@ table {
 }
 body::-webkit-scrollbar { width: 0; height: 0; }
 body{
-  /*background-color: var(--color2);*/
+  background-color: var(--color7);
   /*background-size: cover;*/
   color: var(--color6);
   font-family: "Hack";

@@ -76,7 +76,6 @@ function scroll_to_next_page() {
   } else {
     $current = 0;
   }
-  console.log($current);
   scroll_to($pages[$current]);
 }
 //
