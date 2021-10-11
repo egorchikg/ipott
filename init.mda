@@ -46,7 +46,7 @@ henete
 
 karata  
 tabala  
-interval  
+lapse  
 id  
 henete  
 n  
@@ -67,7 +67,7 @@ name
 satara  
 patronymic  
 satara  
-short_full_name  
+short_name  
 satara  
 
 karata  
@@ -89,7 +89,7 @@ day_id
 henete  
 weekday_id  
 henete  
-interval_id  
+lapse_id  
 henete  
 subject_id  
 henete  
@@ -102,59 +102,52 @@ henete
 
 karata  
 roloto  
-day  
-id  
 lesson  
 day_id  
+day  
+id  
 
 karata  
 roloto  
-weekday  
-id  
 lesson  
 weekday_id  
+weekday  
+id  
 
 karata  
 roloto  
-interval  
-id  
 lesson  
-interval_id  
+lapse_id  
+lapse  
+id  
 
 karata  
 roloto  
-subject  
-id  
 lesson  
 subject_id  
+subject  
+id  
 
 karata  
 roloto  
-cabinet  
-id  
 lesson  
 cabinet_id  
+cabinet  
+id  
 
 karata  
 roloto  
-teacher  
-id  
 lesson  
 teacher_id  
+teacher  
+id  
 
 karata  
 roloto  
-class  
-id  
 lesson  
 class_id  
-
-karata  
-roloto  
-day  
+class  
 id  
-lesson  
-day_id  
 
 henese  
 day  
@@ -435,7 +428,7 @@ subject
 }  
 
 henese  
-interval  
+lapse  
 {  
 0  
 0  
@@ -902,5 +895,77 @@ lesson
 4  
 1  
 1  
+
+0  
+1  
+1  
+5  
+5  
+5  
+1  
+1  
+
+0  
+1  
+1  
+6  
+6  
+6  
+1  
+1  
+
+0  
+1  
+1  
+1  
+1  
+1  
+1  
+20  
+
+0  
+1  
+1  
+2  
+2  
+2  
+1  
+20  
+
+0  
+1  
+1  
+3  
+3  
+3  
+1  
+20  
+
+0  
+1  
+1  
+4  
+4  
+4  
+1  
+20  
+
+0  
+1  
+1  
+5  
+5  
+5  
+1  
+20  
+
+0  
+1  
+1  
+6  
+6  
+6  
+1  
+20  
 }  
 

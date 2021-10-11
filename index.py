@@ -112,11 +112,10 @@ def get_day_rela(day):
     toda = str(dt.year)+"."+str(dt.month)+"."+str(dt.day)
     tomo = str(dt.year)+"."+str(dt.month)+"."+str(dt.day+1)
     #
-    if(day == toda) {
+    if(day == toda):
         day_rela = "Сегодня"
-    } elif (day == tomo) {
+    elif(day == tomo):
         day_rela = "Завтра"
-    }
     #
     return(day_rela)
 #
@@ -140,10 +139,17 @@ def get_info_list():
     nedalu = get_near_days_list()
     kalalu = get_class_ids()
     #
+    #print(nedalu)
+    #print(kalalu)
+    #exit()
+    #
     for kura_class_id in kalalu:
         for kura_day in nedalu:
-            folusa += get_info(kura_day,kura_class_id)
+            feluto = get_info(kura_day,kura_class_id)
+            folusa += feluto
+            #print(feluto)
         #
+        break
     #
     return(folusa)
 #
@@ -160,10 +166,42 @@ def get_info(kura_day,kura_class_id):
     #
     cursor = connection.cursor()
     #
-    #sql = "SELECT * FROM lesson;"
+    sql = ""
+    sql += "SELECT "
+    sql += "weekday.short_name AS weekday_short_name, "
+    sql += "day.name AS day_name, "
+    sql += "class.short_name AS class_short_name, "
+    sql += "lapse.n AS lapse_n, "
+    sql += "subject.short_name AS subject_short_name, "
+    sql += "teacher.short_name AS teacher_short_name, "
+    sql += "cabinet.short_name AS cabinet_short_name "
+    sql += "FROM "
+    sql += "lesson, weekday, day, class, "
+    sql += "lapse, subject, teacher, cabinet "
+    sql += "WHERE "
+    sql += "lesson.weekday_id = weekday.id AND "
+    sql += "lesson.day_id = day.id AND "
+    sql += "lesson.class_id = class.id AND "
+    sql += "lesson.lapse_id = lapse.id AND "
+    sql += "lesson.subject_id = subject.id AND "
+    sql += "lesson.teacher_id = teacher.id AND "
+    sql += "lesson.cabinet_id = cabinet.id AND "
+    sql += f"lesson.class_id = {kura_class_id} AND "
+    sql += f"day.name = '{kura_day}'"
+    sql += ";"
+    #
+    #print(sql)
+    #exit()
+    #
     cursor.execute(sql)
     ru = cursor.fetchall()
     n = 0
+    #
+    #print(ru)
+    #
+    if(len(ru) == 0):
+        return(output)
+    #
     #
     day_rela = get_day_rela(kura_day)
     weekday_short_name = ru[n].get("weekday_short_name")
@@ -186,7 +224,7 @@ def get_info(kura_day,kura_class_id):
     output += '</tr>'
     #
     while(n < len(ru)):
-        interval_n = ru[n].get("interval_n")
+        lapse_n = ru[n].get("lapse_n")
         subject_short_name = ru[n].get("subject_short_name")
         teacher_short_name = ru[n].get("teacher_short_name")
         cabinet_short_name = ru[n].get("cabinet_short_name")
@@ -195,7 +233,7 @@ def get_info(kura_day,kura_class_id):
         #exit()
         #
         output += '<tr class="blue">'
-        output += f'<td>{interval_n}</td>'
+        output += f'<td>{lapse_n}</td>'
         output += f'<td>{subject_short_name}</td>'
         output += f'<td>{teacher_short_name}</td>'
         output += f'<td>{cabinet_short_name}</td>'
@@ -205,96 +243,6 @@ def get_info(kura_day,kura_class_id):
     #
     output += '</table>'
     output += '</div>'
-    #
-    cursor.close()
-    connection.close()
-    #
-    return(output)
-#
-def get_tanaha(hemado=0):
-    output = ""
-    #
-    connection = pymysql.connect(host='localhost',
-        user=_db_user,
-        password=_db_password,
-        database=_db_name,
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor)
-    #
-    cursor = connection.cursor()
-    #
-    sql = "SELECT * FROM formulas;"
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    n = 0
-    #
-    harame = False
-    if(hemado == 0):
-        harame = True
-    #
-    while(n < len(result)):
-        formula_id = result[n].get("formula_id")
-        formula_name = result[n].get("formula_name")
-        formula_tex = result[n].get("formula_tex")
-        theme_id = result[n].get("theme_id")
-        #
-        #print(formula_tex)
-        #exit()
-        #
-        if((theme_id == hemado) or harame):
-            output += '<div class="t">'
-            output += f'{formula_name}'
-            output += '</div>'
-            output += '<div class="h">'
-            output += f'{formula_tex}'
-            output += '</div>'
-        #
-        n+=1
-    #
-    output = output.encode("utf-8").decode('utf-8')
-    #
-    cursor.close()
-    connection.close()
-    #
-    return(output)
-#
-def get_formulas_table():
-    output = ""
-    #
-    connection = pymysql.connect(host='localhost',
-        user=_db_user,
-        password=_db_password,
-        database=_db_name,
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor)
-    #
-    cursor = connection.cursor()
-    #
-    sql = "SELECT * FROM formulas;"
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    n = 0
-    output += "<table>"
-    while(n < len(result)):
-        formula_id = result[n].get("formula_id")
-        formula_name = result[n].get("formula_name")
-        formula_tex = result[n].get("formula_tex")
-        theme_id = result[n].get("theme_id")
-        output += '''<tr>
-<td>{formula_id}</td>
-<td>{formula_name}</td>
-<td>{formula_tex}</td>
-<td>{theme_id}</td>
-</tr>
-'''.format(
-           formula_id=formula_id,
-           formula_name=formula_name,
-           formula_tex=formula_tex,
-           theme_id=theme_id
-          )
-        n+=1
-    #
-    output += "</table>"
     #
     cursor.close()
     connection.close()
@@ -321,18 +269,6 @@ def index(info_list):
     html = html.encode("utf-8").decode("cp1251")
     #
     print(html)
-#
-def delete_empty(elements):
-    return list(filter(lambda x: x!="",elements))
-#
-def delete_spaces(elements):
-    a = list(elements)
-    i = 0
-    n = len(a)
-    while(i<n):
-        a[i]=a[i].strip()
-        i+=1
-    return(a)
 #
 if(__name__=="__main__"):
   main()
