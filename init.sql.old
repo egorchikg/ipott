@@ -1,0 +1,281 @@
+CREATE USER 'lala_user'@'localhost'
+IDENTIFIED BY 'lala_pass';
+--
+CREATE DATABASE lala_db;
+--
+GRANT ALL PRIVILEGES ON lala_db.*
+TO 'lala_user'@'localhost';
+--
+USE lala_db;
+--
+DROP TABLE IF EXISTS lesson;
+DROP TABLE IF EXISTS class;
+DROP TABLE IF EXISTS teacher;
+DROP TABLE IF EXISTS interval;
+DROP TABLE IF EXISTS weekday;
+DROP TABLE IF EXISTS subject;
+DROP TABLE IF EXISTS cabinet;
+DROP TABLE IF EXISTS day;
+--
+--name = yyyy.mm.dd - 2018.05.25
+--
+CREATE TABLE day (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name DATE,
+  PRIMARY KEY (id)
+)
+CREATE TABLE cabinet (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(256),
+  short_name VARCHAR(3),
+  PRIMARY KEY (id)
+)
+CREATE TABLE subject (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(256),
+  short_name VARCHAR(10),
+  PRIMARY KEY (id)
+)
+CREATE TABLE weekday (
+  id INT(11),
+  name VARCHAR(256),
+  short_name VARCHAR(2),
+  n INT(11),
+  PRIMARY KEY (id)
+)
+--
+--start_time = hh:mi - 3:21
+--
+CREATE TABLE interval (
+  id INT(11),
+  n INT(11),
+  start_time TIME,
+  end_time TIME,
+  PRIMARY KEY (id)
+)
+CREATE TABLE teacher (
+  id INT(11),
+  name VARCHAR(256),
+  surname VARCHAR(256),
+  patronymic VARCHAR(256),
+  short_full_name VARCHAR(20),
+  PRIMARY KEY (id)
+)
+CREATE TABLE class (
+  id INT(11),
+  name VARCHAR(256),
+  short_name VARCHAR(35),
+  PRIMARY KEY (id)
+)
+CREATE TABLE lesson (
+  id INT(11),
+  day_id INT(11),
+  weekday_id INT(11),
+  interval_id INT(11),
+  subject_id INT(11),
+  cabinet_id INT(11),
+  teacher_id INT(11),
+  class_id INT(11),
+  --
+  PRIMARY KEY (id),
+  --
+  KEY fk_lesson_day day_id,
+  KEY fk_lesson_weekday weekday_id,
+  KEY fk_lesson_interval interval_id,
+  KEY fk_lesson_subject subject_id,
+  KEY fk_lesson_cabinet cabinet_id,
+  KEY fk_lesson_teacher teacher_id,
+  KEY fk_lesson_class class_id,
+  --
+  CONSTRAINT fk_lesson_day
+      FOREIGN KEY (day_id)
+      REFERENCES day (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+  CONSTRAINT fk_lesson_weekday
+      FOREIGN KEY (weekday_id)
+      REFERENCES weekday (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+  CONSTRAINT fk_lesson_interval
+      FOREIGN KEY (interval_id)
+      REFERENCES interval (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+  CONSTRAINT fk_lesson_subject
+      FOREIGN KEY (subject_id)
+      REFERENCES subject (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+  CONSTRAINT fk_lesson_cabinet
+      FOREIGN KEY (cabinet_id)
+      REFERENCES cabinet (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+  CONSTRAINT fk_lesson_teacher
+      FOREIGN KEY (teacher_id)
+      REFERENCES teacher (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+  CONSTRAINT fk_lesson_class
+      FOREIGN KEY (class_id)
+      REFERENCES class (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+)
+--
+INSERT INTO day VALUES("2021.06.12");
+INSERT INTO day VALUES("2021.06.13");
+INSERT INTO day VALUES("2021.06.14");
+INSERT INTO day VALUES("2021.06.15");
+INSERT INTO day VALUES("2021.06.16");
+INSERT INTO day VALUES("2021.06.17");
+INSERT INTO day VALUES("2021.06.18");
+INSERT INTO day VALUES("2021.06.19");
+--
+INSERT INTO cabinet VALUES("Актовый зал","акт");
+INSERT INTO cabinet VALUES("Учительская","уч.");
+INSERT INTO cabinet VALUES("Улица","ул.");
+INSERT INTO cabinet VALUES("Кабинет технологии Мальчиков","тех");
+INSERT INTO cabinet VALUES("Спортивный зал","с/з");
+INSERT INTO cabinet VALUES("Кабинет № 1","к.1");
+INSERT INTO cabinet VALUES("Кабинет № 2","к.2");
+INSERT INTO cabinet VALUES("Кабинет № 3","к.3");
+INSERT INTO cabinet VALUES("Кабинет № 4","к.4");
+INSERT INTO cabinet VALUES("Кабинет № 5","к.5");
+INSERT INTO cabinet VALUES("Кабинет № 6","к.6");
+INSERT INTO cabinet VALUES("Кабинет № 7","к.7");
+INSERT INTO cabinet VALUES("Кабинет № 8","к.8");
+INSERT INTO cabinet VALUES("Кабинет № 9","к.9");
+INSERT INTO cabinet VALUES("Кабинет № 10","к.10");
+INSERT INTO cabinet VALUES("Кабинет № 11","к.11");
+INSERT INTO cabinet VALUES("Кабинет № 12","к.12");
+INSERT INTO cabinet VALUES("Кабинет № 13","к.13");
+INSERT INTO cabinet VALUES("Кабинет № 14","к.14");
+INSERT INTO cabinet VALUES("Кабинет № 15","к.15");
+INSERT INTO cabinet VALUES("Кабинет № 16","к.16");
+INSERT INTO cabinet VALUES("Кабинет № 17","к.17");
+INSERT INTO cabinet VALUES("Кабинет № 18","к.18");
+INSERT INTO cabinet VALUES("Кабинет № 19","к.19");
+INSERT INTO cabinet VALUES("Кабинет № 20","к.20");
+INSERT INTO cabinet VALUES("Кабинет № 21","к.21");
+INSERT INTO cabinet VALUES("Кабинет № 22","к.22");
+INSERT INTO cabinet VALUES("Кабинет № 23","к.23");
+INSERT INTO cabinet VALUES("Кабинет № 24","к.24");
+INSERT INTO cabinet VALUES("Кабинет № 25","к.25");
+INSERT INTO cabinet VALUES("Кабинет № 26","к.26");
+INSERT INTO cabinet VALUES("Кабинет № 27","каб.27");
+--
+INSERT INTO weekday VALUES("Воскресенье","вс",0);
+INSERT INTO weekday VALUES("Понедельник","пн",1);
+INSERT INTO weekday VALUES("Вторник","вт",2);
+INSERT INTO weekday VALUES("Среда","ср",3);
+INSERT INTO weekday VALUES("Четверг","чт",4);
+INSERT INTO weekday VALUES("Пятница","пт",5);
+INSERT INTO weekday VALUES("Суббота","cб",6);
+--
+INSERT INTO subject VALUES("Физкультура","Физ-ра");
+INSERT INTO subject VALUES("Литература","Литература");
+INSERT INTO subject VALUES("Технология","Технология");
+INSERT INTO subject VALUES("Русский язык","Рус.яз.");
+INSERT INTO subject VALUES("Математика","Математика");
+INSERT INTO subject VALUES("ИЗО","ИЗО");
+INSERT INTO subject VALUES("Музыка","Музыка");
+INSERT INTO subject VALUES("Немецкий язык","Нем.яз.");
+INSERT INTO subject VALUES("Английский язык","Англ.яз.");
+INSERT INTO subject VALUES("Биология","Биология");
+INSERT INTO subject VALUES("Химия","Химия");
+INSERT INTO subject VALUES("Физика","Физика");
+INSERT INTO subject VALUES("География","География");
+INSERT INTO subject VALUES("ОБЖ","ОБЖ");
+INSERT INTO subject VALUES("История","История");
+INSERT INTO subject VALUES("Астрономия","Астрономия");
+INSERT INTO subject VALUES("Обществознание","Общество");
+INSERT INTO subject VALUES("Экономика","Экономика");
+INSERT INTO subject VALUES("Право","Право");
+INSERT INTO subject VALUES("-","-");
+INSERT INTO subject VALUES("Классный час","Кл.ч");
+--
+INSERT INTO interval VALUES(0,"08:30","09:15");
+INSERT INTO interval VALUES(1,"09:30","10:20");
+INSERT INTO interval VALUES(2,"10:30","11:20");
+INSERT INTO interval VALUES(3,"11:30","12:20");
+--
+INSERT INTO class VALUES("1 A","1 A");
+INSERT INTO class VALUES("1 Б","1 Б");
+INSERT INTO class VALUES("1 В","1 В");
+INSERT INTO class VALUES("2 А","2 А");
+INSERT INTO class VALUES("2 Б","2 Б");
+INSERT INTO class VALUES("2 В","2 В");
+INSERT INTO class VALUES("3 А","3 А");
+INSERT INTO class VALUES("3 Б","3 Б");
+INSERT INTO class VALUES("3 В","3 В");
+INSERT INTO class VALUES("4 А","4 А");
+INSERT INTO class VALUES("4 Б","4 Б");
+INSERT INTO class VALUES("4 В","4 В");
+INSERT INTO class VALUES("5 А","5 А");
+INSERT INTO class VALUES("5 Б","5 Б");
+INSERT INTO class VALUES("5 В","5 В");
+INSERT INTO class VALUES("6 А","6 А");
+INSERT INTO class VALUES("6 Б","6 Б");
+INSERT INTO class VALUES("6 В","6 В");
+INSERT INTO class VALUES("7 А","7 А");
+INSERT INTO class VALUES("7 Б","7 Б");
+INSERT INTO class VALUES("7 В","7 В");
+INSERT INTO class VALUES("8 А","8 А");
+INSERT INTO class VALUES("8 Б","8 Б");
+INSERT INTO class VALUES("8 В","8 В");
+INSERT INTO class VALUES("9 А","9 А");
+INSERT INTO class VALUES("9 Б","9 Б");
+INSERT INTO class VALUES("9 В","9 В");
+INSERT INTO class VALUES("10 Технологический профиль","10 ТП");
+INSERT INTO class VALUES("10 Универсальный профиль","10 УП");
+INSERT INTO class VALUES("11 Технический профиль","11 ТП");
+INSERT INTO class VALUES("11 Универсальный профиль","11 УП");
+INSERT INTO class VALUES("Подготовительная группа","ПГ");
+--
+INSERT INTO teacher VALUES("Гаврюшина Любовь Сергеевна","Гаврюшина ЛС");
+INSERT INTO teacher VALUES("Азарова Светлана Евгеньевна","Азарова СВ");
+INSERT INTO teacher VALUES("Андреанова Людмила Михайлова","Андреанова ЛМ");
+INSERT INTO teacher VALUES("Аникина Ирина Юрьевна","Аникина ИЮ");
+INSERT INTO teacher VALUES("Белякова Оксана Игоревна","Белякова ОИ");
+INSERT INTO teacher VALUES("Валяева Екатерина Валентиновна","Валяева ЕВ");
+INSERT INTO teacher VALUES("Васильева Маргарита Юрьевна","Васильева МЮ");
+INSERT INTO teacher VALUES("Волкова Зинаида Петровна","Волкова ЗП");
+INSERT INTO teacher VALUES("Еременко Анна Михайлова","Еременко АМ");
+INSERT INTO teacher VALUES("Журавлева Надежда Васильевна","Журавлева НВ");
+INSERT INTO teacher VALUES("Зыкова Ольга Вячеславовна","Зыкова ОВ");
+INSERT INTO teacher VALUES("Иванов Александр Васильевич","Иванов АВ");
+INSERT INTO teacher VALUES("Иванов Константин Евгеньевич","Иванов КЕ");
+INSERT INTO teacher VALUES("Иванова Наталья Алексеевна","Иванова НА");
+INSERT INTO teacher VALUES("Козачок Лариса Викторовна","Козачок ЛВ");
+INSERT INTO teacher VALUES("Козлова Юлия Валерьевна","Козлова ЮВ");
+INSERT INTO teacher VALUES("Колгина Анастасия Алексеевна","Колгина АА");
+INSERT INTO teacher VALUES("Костина Наталья Зусмановна","Костина НЗ");
+INSERT INTO teacher VALUES("Круглов Александр Александрович","Круглов АА");
+INSERT INTO teacher VALUES("Крымская Елена Эриковна","Крымская ЕЭ");
+INSERT INTO teacher VALUES("Кузнецов Никита Сергеевич","Кузнецов НС");
+INSERT INTO teacher VALUES("Кузнецова Лариса Алексеевна","Кузнецова ЛА");
+INSERT INTO teacher VALUES("Кулагин Артур Александрович","Кулагин АА");
+INSERT INTO teacher VALUES("Лянцева Яна Владимировна","Лянцева ЯВ");
+INSERT INTO teacher VALUES("Майорова Татьяна Барисова","Майорова ТБ");
+INSERT INTO teacher VALUES("Матросова Елена Владимировна","Матросова ЕВ");
+INSERT INTO teacher VALUES("Никитина Ирина Юрьевна","Никитина ИЮ");
+INSERT INTO teacher VALUES("Никитина Светлана Александровна","Никитина СА");
+INSERT INTO teacher VALUES("Николаева Юлия Николаевна","Николаева ЮН");
+INSERT INTO teacher VALUES("Обрядов Александр Владимирович","Обрядов АВ");
+INSERT INTO teacher VALUES("Овчинникова Ирина Васильевна","Овчинникова ИВ");
+INSERT INTO teacher VALUES("Павлова Анеля Васильевна","Павлова АВ");
+INSERT INTO teacher VALUES("Папина Анна Николаевна","Папина АН");
+INSERT INTO teacher VALUES("Петухова Надежда Юрьевна","Петухова НЮ");
+INSERT INTO teacher VALUES("Пикалев Александр Александрович","Пикалев АА");
+INSERT INTO teacher VALUES("Пикалева Любовь Юрьевна","Пикалева ЛЮ");
+INSERT INTO teacher VALUES("Подлесная Елена Михайловна","Подлесная ЕМ");
+INSERT INTO teacher VALUES("Попова Елена Юрьевна","Попова ЕЮ");
+INSERT INTO teacher VALUES("Савинова Марина Анатольевна","Савинова МА");
+INSERT INTO teacher VALUES("Смирнова Галина Анатольевна","Смирнова ГА");
+INSERT INTO teacher VALUES("Федорова Ирина Сергеевна","Федорова ИС");
+INSERT INTO teacher VALUES("Хроменкова Екатерина Игоревна","Хроменкова ЕИ");
+INSERT INTO teacher VALUES("Чеснокова Марина Сергеевна","Чеснокова МС");
+INSERT INTO teacher VALUES("Шамарова Светлана Геннадьевна","Шамарова СГ");
+INSERT INTO teacher VALUES("Янковска Татьяна Викторовна","Янковская ТВ");
