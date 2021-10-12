@@ -114,17 +114,17 @@ REFERENCES class(id)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 --
-INSERT INTO day VALUES ("0","2021.10.11");
 INSERT INTO day VALUES ("0","2021.10.12");
 INSERT INTO day VALUES ("0","2021.10.13");
 INSERT INTO day VALUES ("0","2021.10.14");
 INSERT INTO day VALUES ("0","2021.10.15");
+INSERT INTO day VALUES ("0","2021.10.16");
 --
 INSERT INTO cabinet VALUES ("0","Актовый зал","акт.");
 INSERT INTO cabinet VALUES ("0","Учительская","уч.");
 INSERT INTO cabinet VALUES ("0","Улица","ул.");
 INSERT INTO cabinet VALUES ("0","Столярная мастерская","мас.");
-INSERT INTO cabinet VALUES ("0","Спортивный зал","с/з");
+INSERT INTO cabinet VALUES ("0","Спортивный зал","с.з.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 1","к.1");
 INSERT INTO cabinet VALUES ("0","Кабинет № 2","к.2");
 INSERT INTO cabinet VALUES ("0","Кабинет № 3","к.3");
@@ -187,6 +187,9 @@ INSERT INTO lapse VALUES ("0","0","08:30","09:15");
 INSERT INTO lapse VALUES ("0","1","09:30","10:20");
 INSERT INTO lapse VALUES ("0","2","10:30","11:20");
 INSERT INTO lapse VALUES ("0","3","11:30","12:20");
+INSERT INTO lapse VALUES ("0","4","11:30","12:20");
+INSERT INTO lapse VALUES ("0","5","11:30","12:20");
+INSERT INTO lapse VALUES ("0","6","11:30","12:20");
 --
 INSERT INTO class VALUES ("0","1 A","1 A");
 INSERT INTO class VALUES ("0","1 Б","1 Б");
@@ -271,4 +274,12 @@ INSERT INTO lesson VALUES ("0","1","1","1","1","1","1","1");
 INSERT INTO lesson VALUES ("0","1","1","2","2","2","1","1");
 INSERT INTO lesson VALUES ("0","1","1","3","3","3","1","1");
 INSERT INTO lesson VALUES ("0","1","1","4","4","4","1","1");
+INSERT INTO lesson VALUES ("0","1","1","5","5","5","1","1");
+INSERT INTO lesson VALUES ("0","1","1","6","6","6","1","1");
+INSERT INTO lesson VALUES ("0","1","1","1","1","1","1","20");
+INSERT INTO lesson VALUES ("0","1","1","2","2","2","1","20");
+INSERT INTO lesson VALUES ("0","1","1","3","3","3","1","20");
+INSERT INTO lesson VALUES ("0","1","1","4","4","4","1","20");
+INSERT INTO lesson VALUES ("0","1","1","5","5","5","1","20");
+INSERT INTO lesson VALUES ("0","1","1","6","6","6","1","20");
 --
