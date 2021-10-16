@@ -1,3 +1,9 @@
+DROP USER IF EXISTS 'lala_user'@'localhost';
+--
+DROP DATABASE IF EXISTS lala_db;
+--
+FLUSH PRIVILEGES;
+--
 CREATE USER 'lala_user'@'localhost'
 IDENTIFIED BY 'lala_pass';
 --
@@ -114,11 +120,11 @@ REFERENCES class(id)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 --
-INSERT INTO day VALUES ("0","2021.10.12");
-INSERT INTO day VALUES ("0","2021.10.13");
-INSERT INTO day VALUES ("0","2021.10.14");
-INSERT INTO day VALUES ("0","2021.10.15");
 INSERT INTO day VALUES ("0","2021.10.16");
+INSERT INTO day VALUES ("0","2021.10.17");
+INSERT INTO day VALUES ("0","2021.10.18");
+INSERT INTO day VALUES ("0","2021.10.19");
+INSERT INTO day VALUES ("0","2021.10.20");
 --
 INSERT INTO cabinet VALUES ("0","Актовый зал","акт.");
 INSERT INTO cabinet VALUES ("0","Учительская","уч.");
