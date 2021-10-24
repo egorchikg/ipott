@@ -1,18 +1,18 @@
-DROP USER IF EXISTS 'lala_user'@'localhost';
+DROP USER IF EXISTS 'ipott_user'@'localhost';
 --
-DROP DATABASE IF EXISTS lala_db;
+DROP DATABASE IF EXISTS ipott_db;
 --
 FLUSH PRIVILEGES;
 --
-CREATE USER 'lala_user'@'localhost'
-IDENTIFIED BY 'lala_pass';
+CREATE USER 'ipott_user'@'localhost'
+IDENTIFIED BY 'ipott_pass';
 --
-CREATE DATABASE lala_db;
+CREATE DATABASE ipott_db;
 --
-GRANT ALL PRIVILEGES ON lala_db.*
-TO 'lala_user'@'localhost';
+GRANT ALL PRIVILEGES ON ipott_db.*
+TO 'ipott_user'@'localhost';
 --
-USE lala_db;
+USE ipott_db;
 --
 CREATE TABLE day (
 id INT(11) NOT NULL AUTO_INCREMENT,
