@@ -1,4 +1,4 @@
-#!D:\ilqyul\portpy\python.exe
+#!/usr/bin/python3
 #
 import shutil
 import datetime
@@ -16,9 +16,9 @@ sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 #
 _pattern_html = "pattern2.html"
 #
-_db_user = "lala_user"
-_db_password = "lala_pass"
-_db_name = "lala_db"
+_db_user = "ipott_user"
+_db_password = "ipott_pass"
+_db_name = "ipott_db"
 #
 def main():
     #cgitb.enable(display=1)
