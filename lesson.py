@@ -14,9 +14,9 @@ _pattern = "lesson.html"
 #
 def menene():
     #
-    #reqmet = os.environ["REQUEST_METHOD"]
+    reqmet = os.environ["REQUEST_METHOD"]
     #reqmet = "GET"
-    reqmet = "POST"
+    #reqmet = "POST"
     if(reqmet == "GET"):
         get()
     elif(reqmet == "POST"):
@@ -60,7 +60,8 @@ def post():
     print("Content-type: text/html;charset=utf-8")
     print()
     #
-    #resope = json.load(sys.stdin)
+    resope = json.load(sys.stdin)
+    '''
     resope = {
         "command": "insert",
         "lesson_id": "0",
@@ -72,6 +73,7 @@ def post():
         "teacher_id": "1",
         "class_id": "1",
     }
+    '''
     #
     #
     if(resope["command"] == "insert"):
