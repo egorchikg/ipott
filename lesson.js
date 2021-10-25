@@ -66,7 +66,7 @@ function delete_button_click() {
   //
   let hobo = Object.fromEntries(mapa);
   //
-  //console.log(hobo);
+  console.log(hobo);
   //
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
@@ -98,7 +98,7 @@ function insert_button_click() {
   //
   let hobo = Object.fromEntries(mapa);
   //
-  //console.log(hobo);
+  console.log(hobo);
   //
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
