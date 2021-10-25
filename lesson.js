@@ -66,7 +66,7 @@ function button_click() {
   //
   //console.log(hobo);
   //
-  send_post_query(hobo,"/lesson.py",parse_response);
+  send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
 //
 function day_blur() {

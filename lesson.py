@@ -7,14 +7,15 @@ import pymysql
 import pymysql.cursors
 import os
 #
-_db_user = "lala_user"
-_db_password = "lala_pass"
-_db_name = "lala_db"
+_db_user = "ipott_user"
+_db_password = "ipott_pass"
+_db_name = "ipott_db"
 _pattern = "lesson.html"
 #
 def menene():
     #
-    reqmet = os.environ["REQUEST_METHOD"]
+    #reqmet = os.environ["REQUEST_METHOD"]
+    reqmet = "GET"
     if(reqmet == "GET"):
         get()
     elif(reqmet == "POST"):
