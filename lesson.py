@@ -33,6 +33,7 @@ def get():
     lakebo = get_file_contents(_pattern)
     #
     lavero = get_insert_block()
+    denede = get_delete_block()
     benede = get_datalists()
     #
     lakebo = lakebo.replace(
@@ -43,6 +44,11 @@ def get():
     lakebo = lakebo.replace(
             "<!--insert_block-->",
             lavero
+        )
+    #
+    lakebo = lakebo.replace(
+            "<!--delete_block-->",
+            denede
         )
     #
     print(lakebo)
@@ -56,6 +62,7 @@ def post():
     resope = json.load(sys.stdin)
     '''
     resope = {
+        "command": "insert",
         "lesson_id": "0",
         "day_id": "1",
         "weekday_id": "1",
@@ -66,8 +73,14 @@ def post():
         "class_id": "1",
     }
     '''
-    valusa = get_valusa(resope)
-    insert_into_lesson(valusa)
+    #
+    #
+    if(resope["command"] == "insert"):
+        valusa = get_insert_valusa(resope)
+        insert_into_lesson(valusa)
+    elif(resope["command"] == "delete"):
+        valusa = get_delete_valusa(resope)
+        delete_from_lesson(valusa)
     #
     print("yea!")
 #
@@ -91,7 +104,40 @@ def insert_into_lesson(valusa):
     connection.close()
     #
 #
-def get_valusa(resope):
+def delete_from_lesson(valusa):
+    #
+    connection = pymysql.connect(host='localhost',
+        user=_db_user,
+        password=_db_password,
+        database=_db_name,
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor)
+    #
+    cursor = connection.cursor()
+    #
+    sql = f"DELETE FROM lesson WHERE {valusa};"
+    cursor.execute(sql)
+    #
+    connection.commit()
+    #
+    cursor.close()
+    connection.close()
+    #
+#
+def get_delete_valusa(resope):
+    #
+    valusa = ""
+    valusa += 'day_id="'+resope["day_id"]+'" AND '
+    valusa += 'weekday_id="'+resope["weekday_id"]+'" AND '
+    valusa += 'lapse_id="'+resope["lapse_id"]+'" AND '
+    valusa += 'subject_id="'+resope["subject_id"]+'" AND '
+    valusa += 'cabinet_id="'+resope["cabinet_id"]+'" AND '
+    valusa += 'teacher_id="'+resope["teacher_id"]+'" AND '
+    valusa += 'class_id="'+resope["class_id"]+'"'
+    #
+    return(valusa)
+#
+def get_insert_valusa(resope):
     #
     valusa = ""
     valusa += '"'+resope["lesson_id"]+'",'
@@ -141,14 +187,13 @@ def get_day_datalist():
     #
     return(leseke)
 #
-def get_day_search_input():
+def get_search_input(tname,phold,cla,disabled=False):
     #
-    tname = "day"
-    phold = "дата"
-    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" class="{cla}">'
+    leseke += f'placeholder="{phold}" class="{cla}" '
+    leseke += 'disabled' if disabled else ''
+    leseke += '>'
     #
     return(leseke)
 #
@@ -169,17 +214,6 @@ def get_weekday_datalist():
     #
     return(leseke)
 #
-def get_weekday_search_input():
-    #
-    tname = "weekday"
-    phold = "день недели"
-    cla = "insert"
-    leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" class="{cla}" disabled>'
-    #
-    return(leseke)
-#
 def get_class_datalist():
     #
     tname = "class"
@@ -192,17 +226,6 @@ def get_class_datalist():
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    #
-    return(leseke)
-#
-def get_class_search_input():
-    #
-    tname = "class"
-    phold = "класс"
-    cla = "insert"
-    leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -221,17 +244,6 @@ def get_lapse_datalist():
     #
     return(leseke)
 #
-def get_lapse_search_input():
-    #
-    tname = "lapse"
-    phold = "номер урока"
-    cla = "insert"
-    leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" class="{cla}">'
-    #
-    return(leseke)
-#
 def get_subject_datalist():
     #
     tname = "subject"
@@ -244,17 +256,6 @@ def get_subject_datalist():
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    #
-    return(leseke)
-#
-def get_subject_search_input():
-    #
-    tname = "subject"
-    phold = "предмет"
-    cla = "insert"
-    leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -273,17 +274,6 @@ def get_teacher_datalist():
     #
     return(leseke)
 #
-def get_teacher_search_input():
-    #
-    tname = "teacher"
-    phold = "учитель"
-    cla = "insert"
-    leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" class="{cla}">'
-    #
-    return(leseke)
-#
 def get_cabinet_datalist():
     #
     tname = "cabinet"
@@ -296,17 +286,6 @@ def get_cabinet_datalist():
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    #
-    return(leseke)
-#
-def get_cabinet_search_input():
-    #
-    tname = "cabinet"
-    phold = "кабинет"
-    cla = "insert"
-    leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -323,19 +302,44 @@ def get_datalists():
     #
     return(lesene)
 #
+def get_button(title,cla):
+    #
+    le = ""
+    le += f'<button class="{cla}">{title}</button>'
+    #
+    return(le)
+#
 def get_insert_block():
     #
-    lesene = ""
-    lesene += get_day_search_input()
-    lesene += get_weekday_search_input()
-    lesene += get_class_search_input()
-    lesene += get_lapse_search_input()
-    lesene += get_subject_search_input()
-    lesene += get_teacher_search_input()
-    lesene += get_cabinet_search_input()
-    lesene += '<button class="insert">Добавить</button>'
+    cla = "insert"
     #
-    return(lesene)
+    le = ""
+    le += get_search_input("day","дата",cla)
+    le += get_search_input("weekday","день недели",cla,True)
+    le += get_search_input("class","класс",cla)
+    le += get_search_input("lapse","номер урока",cla)
+    le += get_search_input("subject","предмет",cla)
+    le += get_search_input("teacher","учитель",cla)
+    le += get_search_input("cabinet","кабинет",cla)
+    le += get_button("Добавить",cla)
+    #
+    return(le)
+#
+def get_delete_block():
+    #
+    cla = "delete"
+    #
+    le = ""
+    le += get_search_input("day","дата",cla)
+    le += get_search_input("weekday","день недели",cla,True)
+    le += get_search_input("class","класс",cla)
+    le += get_search_input("lapse","номер урока",cla)
+    le += get_search_input("subject","предмет",cla)
+    le += get_search_input("teacher","учитель",cla)
+    le += get_search_input("cabinet","кабинет",cla)
+    le += get_button("Удалить",cla)
+    #
+    return(le)
 #
 def get_file_contents(fn):
     #

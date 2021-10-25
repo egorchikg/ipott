@@ -1,5 +1,8 @@
-.delete {
+.delete:nth-child(2n+1) {
   background-color: #EE6B9E;
+}
+.delete:nth-child(2n) {
+  background-color: white;
 }
 .insert:nth-child(2n+1) {
   background-color: white;

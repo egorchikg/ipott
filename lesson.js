@@ -21,9 +21,9 @@ function parse_response (resope) {
   //
 }
 //
-function get_value_of_search_input(daluhe) {
+function get_value_of_search_input(daluhe,kalase) {
   //
-  let seleko = "input[list='"+daluhe+"']";
+  let seleko = "input[list='"+daluhe+"']."+kalase;
   let daluheva = document.querySelector(seleko).value;
   let daluheha = null;
   //
@@ -41,18 +41,52 @@ function get_value_of_search_input(daluhe) {
   //
 }
 //
-function button_click() {
+function delete_button_click() {
   let mapa = new Map();
   //
-  let lesson_id = "0";
-  let day_id = get_value_of_search_input("day");
-  let weekday_id = get_value_of_search_input("weekday");
-  let class_id = get_value_of_search_input("class");
-  let lapse_id = get_value_of_search_input("lapse");
-  let subject_id = get_value_of_search_input("subject");
-  let teacher_id = get_value_of_search_input("teacher");
-  let cabinet_id = get_value_of_search_input("cabinet");
+  let ka = "delete"
   //
+  let command = ka;
+  let day_id = get_value_of_search_input("day",ka);
+  let weekday_id = get_value_of_search_input("weekday",ka);
+  let class_id = get_value_of_search_input("class",ka);
+  let lapse_id = get_value_of_search_input("lapse",ka);
+  let subject_id = get_value_of_search_input("subject",ka);
+  let teacher_id = get_value_of_search_input("teacher",ka);
+  let cabinet_id = get_value_of_search_input("cabinet",ka);
+  //
+  mapa.set("command",command);
+  mapa.set("day_id",day_id);
+  mapa.set("weekday_id",weekday_id);
+  mapa.set("class_id",class_id);
+  mapa.set("lapse_id",lapse_id);
+  mapa.set("subject_id",subject_id);
+  mapa.set("teacher_id",teacher_id);
+  mapa.set("cabinet_id",cabinet_id);
+  //
+  let hobo = Object.fromEntries(mapa);
+  //
+  //console.log(hobo);
+  //
+  send_post_query(hobo,"/ipott/lesson.py",parse_response);
+}
+//
+function insert_button_click() {
+  let mapa = new Map();
+  //
+  let ka = "insert"
+  //
+  let command = ka;
+  let lesson_id = "0";
+  let day_id = get_value_of_search_input("day",ka);
+  let weekday_id = get_value_of_search_input("weekday",ka);
+  let class_id = get_value_of_search_input("class",ka);
+  let lapse_id = get_value_of_search_input("lapse",ka);
+  let subject_id = get_value_of_search_input("subject",ka);
+  let teacher_id = get_value_of_search_input("teacher",ka);
+  let cabinet_id = get_value_of_search_input("cabinet",ka);
+  //
+  mapa.set("command",command);
   mapa.set("lesson_id",lesson_id);
   mapa.set("day_id",day_id);
   mapa.set("weekday_id",weekday_id);
@@ -91,8 +125,11 @@ function day_blur() {
   }
 }
 //
-let button = document.querySelector("button");
-button.addEventListener("click",button_click);
+let ins_button = document.querySelector("button.insert");
+ins_button.addEventListener("click",insert_button_click);
+//
+let del_button = document.querySelector("button.delete");
+del_button.addEventListener("click",delete_button_click);
 //
 let day = document.querySelector("input[list='day']");
 day.addEventListener("blur",day_blur);
