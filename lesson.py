@@ -78,11 +78,12 @@ def post():
     if(resope["command"] == "insert"):
         valusa = get_insert_valusa(resope)
         insert_into_lesson(valusa)
+        print("inserting done!")
     elif(resope["command"] == "delete"):
         valusa = get_delete_valusa(resope)
         delete_from_lesson(valusa)
+        print("deleting done!")
     #
-    print("yea!")
 #
 def insert_into_lesson(valusa):
     #
