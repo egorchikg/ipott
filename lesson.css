@@ -1,8 +1,11 @@
 .delete {
   background-color: #EE6B9E;
 }
-.insert {
+.insert:nth-child(2n) {
   background-color: #63DB93;
+}
+.insert:nth-child(2n+1) {
+  background-color: #80EA69;
 }
 .update {
   background-color: #66A1D2;
@@ -14,6 +17,9 @@ input {
   background-color: none;
   outline: none;
   border: none;
-  height: 3vh;
-  font-size: 3vh;
+  height: 4vh;
+  font-size: 2.5vh;
+}
+body {
+  margin: 0;
 }
