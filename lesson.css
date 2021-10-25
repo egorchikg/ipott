@@ -2,6 +2,9 @@
   background-color: #EE6B9E;
 }
 .insert:nth-child(2n+1) {
+  background-color: white;
+}
+.insert:nth-child(2n) {
   background-color: #80EA69;
 }
 .update {
