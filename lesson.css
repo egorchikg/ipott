@@ -1,8 +1,8 @@
 .delete {
   background-color: #EE6B9E;
 }
-.insert:nth-child(2n) {
-  background-color: #63DB93;
+.insert {
+  border-right: 1vh solid black;
 }
 .insert:nth-child(2n+1) {
   background-color: #80EA69;
