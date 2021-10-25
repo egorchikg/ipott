@@ -44,9 +44,9 @@ function get_value_of_search_input(daluhe,kalase) {
 function delete_button_click() {
   let mapa = new Map();
   //
-  alert("hi");
+  //alert("hi");
   let ka = "delete";
-  alert(ka);
+  //alert(ka);
   //
   let command = ka;
   let day_id = get_value_of_search_input("day",ka);
@@ -76,9 +76,9 @@ function delete_button_click() {
 function insert_button_click() {
   let mapa = new Map();
   //
-  alert("hi");
+  //alert("hi");
   let ka = "insert";
-  alert(ka);
+  //alert(ka);
   //
   let command = ka;
   let lesson_id = "0";
@@ -154,9 +154,6 @@ function delete_day_blur() {
     }
   }
 }
-//
-let heh = document.querySelector("button.insert");
-alert(heh.value);
 //
 let ins_button = document.querySelector("button.insert");
 ins_button.addEventListener("click",insert_button_click);
