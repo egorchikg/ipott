@@ -44,6 +44,7 @@ function get_value_of_search_input(daluhe,kalase) {
 function delete_button_click() {
   let mapa = new Map();
   //
+  alert("hi");
   let ka = "delete";
   alert(ka);
   //
@@ -75,6 +76,7 @@ function delete_button_click() {
 function insert_button_click() {
   let mapa = new Map();
   //
+  alert("hi");
   let ka = "insert";
   alert(ka);
   //
@@ -128,7 +130,7 @@ function day_blur() {
 }
 //
 let heh = document.querySelector("button.insert");
-alert(heh);
+alert(heh.value);
 //
 let ins_button = document.querySelector("button.insert");
 ins_button.addEventListener("click",insert_button_click);
