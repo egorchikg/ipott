@@ -14,8 +14,8 @@ _pattern = "lesson.html"
 #
 def menene():
     #
-    #reqmet = os.environ["REQUEST_METHOD"]
-    reqmet = "GET"
+    reqmet = os.environ["REQUEST_METHOD"]
+    #reqmet = "GET"
     if(reqmet == "GET"):
         get()
     elif(reqmet == "POST"):
@@ -333,7 +333,7 @@ def get_insert_block():
     lesene += get_subject_search_input()
     lesene += get_teacher_search_input()
     lesene += get_cabinet_search_input()
-    lesene += '<button class="insert">add</button>'
+    lesene += '<button class="insert">Добавить</button>'
     #
     return(lesene)
 #
