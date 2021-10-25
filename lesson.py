@@ -333,7 +333,7 @@ def get_insert_block():
     lesene += get_subject_search_input()
     lesene += get_teacher_search_input()
     lesene += get_cabinet_search_input()
-    lesene += "<button>add</button>"
+    lesene += '<button class="insert">add</button>'
     #
     return(lesene)
 #

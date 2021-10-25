@@ -1,9 +1,6 @@
 .delete {
   background-color: #EE6B9E;
 }
-.insert {
-  border-right: 1vh solid black;
-}
 .insert:nth-child(2n+1) {
   background-color: #80EA69;
 }
@@ -22,7 +19,7 @@
   justify-content: stretch;
   align-items: center;
 }
-input {
+input,button {
   -webkit-appearance: none;
   background-color: none;
   outline: none;
