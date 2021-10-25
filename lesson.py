@@ -83,6 +83,8 @@ def post():
         valusa = get_delete_valusa(resope)
         delete_from_lesson(valusa)
         print("deleting done!")
+    else:
+        print(resope["command"])
     #
 #
 def insert_into_lesson(valusa):
