@@ -338,7 +338,7 @@ def get_delete_block():
     le += get_search_input("subject","предмет",cla)
     le += get_search_input("teacher","учитель",cla)
     le += get_search_input("cabinet","кабинет",cla)
-    le += get_button("Удалить",cla)
+    le += get_button("Удалить&nbsp;",cla)
     #
     return(le)
 #
