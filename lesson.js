@@ -107,11 +107,37 @@ function insert_button_click() {
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
 //
-function day_blur() {
+function insert_day_blur() {
   //
-  let wday = document.querySelector("input[list='weekday']");
+  let ka = "insert";
   //
-  let day = document.querySelector("input[list='day']");
+  let wday = document.querySelector("input[list='weekday']."+ka);
+  //
+  let day = document.querySelector("input[list='day']."+ka);
+  day = day.value;
+  //
+  let daypa = day.split(".");
+  let now = new Date(daypa[0],daypa[1]-1,daypa[2]);
+  nade = now.getDay();
+  //
+  seleko = "#weekday option";
+  let hopotezu = document.querySelectorAll(seleko);
+  //
+  for(const hopotene of hopotezu) {
+    if(hopotene.dataset.n == nade) {
+      wday.value = hopotene.value;
+      break;
+    }
+  }
+}
+//
+function delete_day_blur() {
+  //
+  let ka = "delete";
+  //
+  let wday = document.querySelector("input[list='weekday']."+ka);
+  //
+  let day = document.querySelector("input[list='day']."+ka);
   day = day.value;
   //
   let daypa = day.split(".");
@@ -138,6 +164,9 @@ ins_button.addEventListener("click",insert_button_click);
 let del_button = document.querySelector("button.delete");
 del_button.addEventListener("click",delete_button_click);
 //
-let day = document.querySelector("input[list='day']");
-day.addEventListener("blur",day_blur);
+let i_day = document.querySelector("input[list='day'].insert");
+i_day.addEventListener("blur",insert_day_blur);
+//
+let d_day = document.querySelector("input[list='day'].delete");
+d_day.addEventListener("blur",delete_day_blur);
 //
