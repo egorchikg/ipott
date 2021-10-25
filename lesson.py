@@ -145,9 +145,10 @@ def get_day_search_input():
     #
     tname = "day"
     phold = "дата"
+    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
+    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -172,9 +173,10 @@ def get_weekday_search_input():
     #
     tname = "weekday"
     phold = "день недели"
+    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" disabled>'
+    leseke += f'placeholder="{phold}" class="{cla}" disabled>'
     #
     return(leseke)
 #
@@ -197,9 +199,10 @@ def get_class_search_input():
     #
     tname = "class"
     phold = "класс"
+    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
+    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -222,9 +225,10 @@ def get_lapse_search_input():
     #
     tname = "lapse"
     phold = "номер урока"
+    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
+    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -247,9 +251,10 @@ def get_subject_search_input():
     #
     tname = "subject"
     phold = "предмет"
+    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
+    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -272,9 +277,10 @@ def get_teacher_search_input():
     #
     tname = "teacher"
     phold = "учитель"
+    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
+    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
@@ -297,9 +303,10 @@ def get_cabinet_search_input():
     #
     tname = "cabinet"
     phold = "кабинет"
+    cla = "insert"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
+    leseke += f'placeholder="{phold}" class="{cla}">'
     #
     return(leseke)
 #
