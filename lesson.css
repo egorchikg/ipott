@@ -1,0 +1,17 @@
+.delete {
+  background-color: #EE6B9E;
+}
+.insert {
+  background-color: #63DB93;
+}
+.update {
+  background-color: #66A1D2;
+}
+.find {
+  background-color: #FFE973;
+}
+input {
+  background-color: none;
+  outline: none;
+  border: none;
+}

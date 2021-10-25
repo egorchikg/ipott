@@ -31,9 +31,17 @@ def get():
     print("Content-type: text/html;charset=utf-8")
     print()
     lakebo = get_file_contents(_pattern)
-    lavero = get_insert_form()
+    #
+    lavero = get_insert_block()
+    benede = get_datalists()
+    #
     lakebo = lakebo.replace(
-            "<!--insert_form-->",
+            "<!--datalists-->",
+            benede
+        )
+    #
+    lakebo = lakebo.replace(
+            "<!--insert_block-->",
             lavero
         )
     #
@@ -118,14 +126,11 @@ def get_dict_from_table(tname):
     return(result)
     #
 #
-def get_day_search_input():
+def get_day_datalist():
     #
     tname = "day"
-    phold = "дата"
     tdict = get_dict_from_table(tname)
     leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
     leseke += f'<datalist id="{tname}">'
     for rova in tdict:
         rid = rova["id"]
@@ -133,18 +138,24 @@ def get_day_search_input():
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    leseke += '<br><br>'
     #
     return(leseke)
 #
-def get_weekday_search_input():
+def get_day_search_input():
     #
-    tname = "weekday"
-    phold = "день недели"
-    tdict = get_dict_from_table(tname)
+    tname = "day"
+    phold = "дата"
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}" disabled>'
+    leseke += f'placeholder="{phold}">'
+    #
+    return(leseke)
+#
+def get_weekday_datalist():
+    #
+    tname = "weekday"
+    tdict = get_dict_from_table(tname)
+    leseke = ""
     leseke += f'<datalist id="{tname}">'
     for rova in tdict:
         rid = rova["id"]
@@ -154,7 +165,31 @@ def get_weekday_search_input():
         leseke += f'data-n="{rn}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    leseke += '<br><br>'
+    #
+    return(leseke)
+#
+def get_weekday_search_input():
+    #
+    tname = "weekday"
+    phold = "день недели"
+    leseke = ""
+    leseke += f'<input type="search" list="{tname}" '
+    leseke += f'placeholder="{phold}" disabled>'
+    #
+    return(leseke)
+#
+def get_class_datalist():
+    #
+    tname = "class"
+    tdict = get_dict_from_table(tname)
+    leseke = ""
+    leseke += f'<datalist id="{tname}">'
+    for rova in tdict:
+        rid = rova["id"]
+        rnm = rova["short_name"]
+        leseke += f'<option data-id="{rid}">{rnm}</option>'
+    #
+    leseke += '</datalist>'
     #
     return(leseke)
 #
@@ -162,29 +197,17 @@ def get_class_search_input():
     #
     tname = "class"
     phold = "класс"
-    tdict = get_dict_from_table(tname)
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
     leseke += f'placeholder="{phold}">'
-    leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rnm = rova["short_name"]
-        leseke += f'<option data-id="{rid}">{rnm}</option>'
-    #
-    leseke += '</datalist>'
-    leseke += '<br><br>'
     #
     return(leseke)
 #
-def get_lapse_search_input():
+def get_lapse_datalist():
     #
     tname = "lapse"
-    phold = "номер урока"
     tdict = get_dict_from_table(tname)
     leseke = ""
-    leseke += f'<input type="search" list="{tname}" '
-    leseke += f'placeholder="{phold}">'
     leseke += f'<datalist id="{tname}">'
     for rova in tdict:
         rid = rova["id"]
@@ -192,7 +215,31 @@ def get_lapse_search_input():
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    leseke += '<br><br>'
+    #
+    return(leseke)
+#
+def get_lapse_search_input():
+    #
+    tname = "lapse"
+    phold = "номер урока"
+    leseke = ""
+    leseke += f'<input type="search" list="{tname}" '
+    leseke += f'placeholder="{phold}">'
+    #
+    return(leseke)
+#
+def get_subject_datalist():
+    #
+    tname = "subject"
+    tdict = get_dict_from_table(tname)
+    leseke = ""
+    leseke += f'<datalist id="{tname}">'
+    for rova in tdict:
+        rid = rova["id"]
+        rnm = rova["short_name"]
+        leseke += f'<option data-id="{rid}">{rnm}</option>'
+    #
+    leseke += '</datalist>'
     #
     return(leseke)
 #
@@ -200,10 +247,17 @@ def get_subject_search_input():
     #
     tname = "subject"
     phold = "предмет"
-    tdict = get_dict_from_table(tname)
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
     leseke += f'placeholder="{phold}">'
+    #
+    return(leseke)
+#
+def get_teacher_datalist():
+    #
+    tname = "teacher"
+    tdict = get_dict_from_table(tname)
+    leseke = ""
     leseke += f'<datalist id="{tname}">'
     for rova in tdict:
         rid = rova["id"]
@@ -211,7 +265,6 @@ def get_subject_search_input():
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    leseke += '<br><br>'
     #
     return(leseke)
 #
@@ -219,10 +272,17 @@ def get_teacher_search_input():
     #
     tname = "teacher"
     phold = "учитель"
-    tdict = get_dict_from_table(tname)
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
     leseke += f'placeholder="{phold}">'
+    #
+    return(leseke)
+#
+def get_cabinet_datalist():
+    #
+    tname = "cabinet"
+    tdict = get_dict_from_table(tname)
+    leseke = ""
     leseke += f'<datalist id="{tname}">'
     for rova in tdict:
         rid = rova["id"]
@@ -230,7 +290,6 @@ def get_teacher_search_input():
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
     leseke += '</datalist>'
-    leseke += '<br><br>'
     #
     return(leseke)
 #
@@ -238,22 +297,26 @@ def get_cabinet_search_input():
     #
     tname = "cabinet"
     phold = "кабинет"
-    tdict = get_dict_from_table(tname)
     leseke = ""
     leseke += f'<input type="search" list="{tname}" '
     leseke += f'placeholder="{phold}">'
-    leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rnm = rova["short_name"]
-        leseke += f'<option data-id="{rid}">{rnm}</option>'
-    #
-    leseke += '</datalist>'
-    leseke += '<br><br>'
     #
     return(leseke)
 #
-def get_insert_form():
+def get_datalists():
+    #
+    lesene = ""
+    lesene += get_day_datalist()
+    lesene += get_weekday_datalist()
+    lesene += get_class_datalist()
+    lesene += get_lapse_datalist()
+    lesene += get_subject_datalist()
+    lesene += get_teacher_datalist()
+    lesene += get_cabinet_datalist()
+    #
+    return(lesene)
+#
+def get_insert_block():
     #
     lesene = ""
     lesene += get_day_search_input()
