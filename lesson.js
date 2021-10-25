@@ -44,7 +44,7 @@ function get_value_of_search_input(daluhe,kalase) {
 function delete_button_click() {
   let mapa = new Map();
   //
-  let ka = "delete"
+  let ka = "delete";
   //
   let command = ka;
   let day_id = get_value_of_search_input("day",ka);
@@ -74,7 +74,7 @@ function delete_button_click() {
 function insert_button_click() {
   let mapa = new Map();
   //
-  let ka = "insert"
+  let ka = "insert";
   //
   let command = ka;
   let lesson_id = "0";
