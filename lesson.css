@@ -36,6 +36,8 @@ input,button {
 }
 button {
   border-radius: 2vh;
+  padding-right: 2vh;
+  padding-left: 2vh;
 }
 input[type="search"] {
   -webkit-appearance: none;
