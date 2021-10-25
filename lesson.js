@@ -127,6 +127,9 @@ function day_blur() {
   }
 }
 //
+let heh = document.querySelector("button.insert");
+alert(heh);
+//
 let ins_button = document.querySelector("button.insert");
 ins_button.addEventListener("click",insert_button_click);
 //
