@@ -21,10 +21,18 @@ function parse_response (resope) {
   //
 }
 //
-function get_value_of_search_input(daluhe,kalase) {
+function get_value_of_hidden_input(pa) {
   //
-  let seleko = "input[list='"+daluhe+"']."+kalase;
-  let daluheva = document.querySelector(seleko).value;
+  let seleko = "input[type='hidden']";
+  let daluheva = pa.querySelector(seleko).value;
+  //
+  return(daluheva);
+}
+//
+function get_value_of_search_input(daluhe,pa) {
+  //
+  let seleko = "input[list='"+daluhe+"']";
+  let daluheva = pa.querySelector(seleko).value;
   let daluheha = null;
   //
   seleko = "#"+daluhe+" option";
@@ -41,7 +49,9 @@ function get_value_of_search_input(daluhe,kalase) {
   //
 }
 //
-function delete_button_click() {
+function delete_button_click(event) {
+  let button = event.currentTarget;
+  let pa = button.parentNode;
   let mapa = new Map();
   //
   //alert("hi");
@@ -49,20 +59,10 @@ function delete_button_click() {
   //alert(ka);
   //
   let command = ka;
-  let day_id = get_value_of_search_input("day",ka);
-  let class_id = get_value_of_search_input("class",ka);
-  let lapse_id = get_value_of_search_input("lapse",ka);
-  let subject_id = get_value_of_search_input("subject",ka);
-  let teacher_id = get_value_of_search_input("teacher",ka);
-  let cabinet_id = get_value_of_search_input("cabinet",ka);
+  let lesson_id = get_value_of_hidden_input(pa);
   //
   mapa.set("command",command);
-  mapa.set("day_id",day_id);
-  mapa.set("class_id",class_id);
-  mapa.set("lapse_id",lapse_id);
-  mapa.set("subject_id",subject_id);
-  mapa.set("teacher_id",teacher_id);
-  mapa.set("cabinet_id",cabinet_id);
+  mapa.set("lesson_id",lesson_id);
   //
   let hobo = Object.fromEntries(mapa);
   //
@@ -71,7 +71,9 @@ function delete_button_click() {
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
 //
-function insert_button_click() {
+function insert_button_click(event) {
+  let button = event.currentTarget;
+  let pa = button.parentNode;
   let mapa = new Map();
   //
   //alert("hi");
@@ -80,12 +82,12 @@ function insert_button_click() {
   //
   let command = ka;
   let lesson_id = "0";
-  let day_id = get_value_of_search_input("day",ka);
-  let class_id = get_value_of_search_input("class",ka);
-  let lapse_id = get_value_of_search_input("lapse",ka);
-  let subject_id = get_value_of_search_input("subject",ka);
-  let teacher_id = get_value_of_search_input("teacher",ka);
-  let cabinet_id = get_value_of_search_input("cabinet",ka);
+  let day_id = get_value_of_search_input("day",pa);
+  let class_id = get_value_of_search_input("class",pa);
+  let lapse_id = get_value_of_search_input("lapse",pa);
+  let subject_id = get_value_of_search_input("subject",pa);
+  let teacher_id = get_value_of_search_input("teacher",pa);
+  let cabinet_id = get_value_of_search_input("cabinet",pa);
   //
   mapa.set("command",command);
   mapa.set("lesson_id",lesson_id);

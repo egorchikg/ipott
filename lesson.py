@@ -198,6 +198,15 @@ def get_search_input(tname,phold,cla,disabled=False):
     #
     return(leseke)
 #
+def get_hidden_input(value,cla):
+    #
+    leseke = ""
+    leseke += f'<input type="hidden" '
+    leseke += f'value="{value}" class="{cla}" '
+    leseke += '>'
+    #
+    return(leseke)
+#
 def get_class_datalist():
     #
     tname = "class"
@@ -328,6 +337,7 @@ def get_delete_block():
     #
     #
     le = ""
+    le += get_hidden_input("5",clall)
     le += get_search_input("day","дата",clall)
     le += get_search_input("class","класс",clall)
     le += get_search_input("lapse","номер урока",clall)
