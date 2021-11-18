@@ -294,16 +294,24 @@ def get_button(title,cla):
 #
 def get_insert_block():
     #
-    cla = "insert"
+    cla1 = "select"
+    cla2 = "insert"
+    #
+    clali = []
+    clali.append(cla1)
+    clali.append(cla2)
+    #
+    clall = " ".join(clali)
     #
     le = ""
-    le += get_search_input("day","дата",cla)
-    le += get_search_input("class","класс",cla)
-    le += get_search_input("lapse","номер урока",cla)
-    le += get_search_input("subject","предмет",cla)
-    le += get_search_input("teacher","учитель",cla)
-    le += get_search_input("cabinet","кабинет",cla)
-    le += get_button("Добавить",cla)
+    le += get_search_input("day","дата",clall)
+    le += get_search_input("class","класс",clall)
+    le += get_search_input("lapse","номер урока",clall)
+    le += get_search_input("subject","предмет",clall)
+    le += get_search_input("teacher","учитель",clall)
+    le += get_search_input("cabinet","кабинет",clall)
+    le += get_button("Найти",cla1)
+    le += get_button("Добавить",cla2)
     #
     return(le)
 #
