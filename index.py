@@ -50,7 +50,7 @@ def get_class_ids():
     #
     cursor = connection.cursor()
     #
-    sql = "SELECT id FROM class ORDER BY short_name;"
+    sql = "SELECT id FROM class ORDER BY id;"
     cursor.execute(sql)
     result = cursor.fetchall()
     n = 0
