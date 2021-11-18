@@ -9,7 +9,7 @@ body {
   background-color: white;
 }
 .insert {
-  background-color: #80EA69;
+  background-color: #B7F4AA;
 }
 .update {
   background-color: #66A1D2;
@@ -42,6 +42,7 @@ input,button {
   border-radius: 2vh;
 }
 button {
+  background-color: white;
   padding-right: 2vh;
   padding-left: 2vh;
 }
