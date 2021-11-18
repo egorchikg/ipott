@@ -103,7 +103,7 @@ def get_info_list(da):
         dt = datetime.date.today()
     else:
         print(da)
-        dt = datetime.strptime(da,"%Y%m%d")
+        dt = datetime.datetime.strptime(da,"%Y%m%d")
         print(dt)
     #
     nedalu = get_near_days_list(dt)
