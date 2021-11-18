@@ -1,18 +1,16 @@
 body {
   margin: 0;
   font-family: monospace;
+  background-color: #325987;
 }
-.delete:nth-child(2n+1) {
-  background-color: #EE6B9E;
-}
-.delete:nth-child(2n) {
-  background-color: white;
+.delete {
+  background-color: #F791B8;
 }
 .insert {
   background-color: #B7F4AA;
 }
 .update {
-  background-color: #66A1D2;
+  border: 0.5vh solid #66A1D2;
 }
 .select {
   border: 0.5vh solid #FFE973;
