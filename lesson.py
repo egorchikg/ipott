@@ -130,7 +130,7 @@ def delete_from_lesson(valusa):
 def get_delete_valusa(resope):
     #
     valusa = ""
-    valusa += 'lesson_id="'+resope["lesson_id"]+'"'
+    valusa += 'lesson_id='+resope["lesson_id"]+''
     #
     return(valusa)
 #
