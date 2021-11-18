@@ -50,7 +50,6 @@ function delete_button_click() {
   //
   let command = ka;
   let day_id = get_value_of_search_input("day",ka);
-  let weekday_id = get_value_of_search_input("weekday",ka);
   let class_id = get_value_of_search_input("class",ka);
   let lapse_id = get_value_of_search_input("lapse",ka);
   let subject_id = get_value_of_search_input("subject",ka);
@@ -59,7 +58,6 @@ function delete_button_click() {
   //
   mapa.set("command",command);
   mapa.set("day_id",day_id);
-  mapa.set("weekday_id",weekday_id);
   mapa.set("class_id",class_id);
   mapa.set("lapse_id",lapse_id);
   mapa.set("subject_id",subject_id);
@@ -83,7 +81,6 @@ function insert_button_click() {
   let command = ka;
   let lesson_id = "0";
   let day_id = get_value_of_search_input("day",ka);
-  let weekday_id = get_value_of_search_input("weekday",ka);
   let class_id = get_value_of_search_input("class",ka);
   let lapse_id = get_value_of_search_input("lapse",ka);
   let subject_id = get_value_of_search_input("subject",ka);
@@ -93,7 +90,6 @@ function insert_button_click() {
   mapa.set("command",command);
   mapa.set("lesson_id",lesson_id);
   mapa.set("day_id",day_id);
-  mapa.set("weekday_id",weekday_id);
   mapa.set("class_id",class_id);
   mapa.set("lapse_id",lapse_id);
   mapa.set("subject_id",subject_id);
@@ -107,6 +103,7 @@ function insert_button_click() {
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
 //
+/*
 function insert_day_blur() {
   //
   let ka = "insert";
@@ -130,7 +127,9 @@ function insert_day_blur() {
     }
   }
 }
+*/
 //
+/*
 function delete_day_blur() {
   //
   let ka = "delete";
@@ -154,6 +153,7 @@ function delete_day_blur() {
     }
   }
 }
+*/
 //
 let ins_button = document.querySelector("button.insert");
 ins_button.addEventListener("click",insert_button_click);
@@ -161,9 +161,13 @@ ins_button.addEventListener("click",insert_button_click);
 let del_button = document.querySelector("button.delete");
 del_button.addEventListener("click",delete_button_click);
 //
+/*
 let i_day = document.querySelector("input[list='day'].insert");
 i_day.addEventListener("blur",insert_day_blur);
+*/
 //
+/*
 let d_day = document.querySelector("input[list='day'].delete");
 d_day.addEventListener("blur",delete_day_blur);
+*/
 //
