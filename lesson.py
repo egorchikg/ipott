@@ -141,7 +141,7 @@ def select_from_lesson(valusa):
     #cursor.close()
     #connection.close()
     #
-    return(ru)
+    return(ru+"\n"+sql)
     #return(sql)
 #
 def insert_into_lesson(valusa):
