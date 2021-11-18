@@ -26,7 +26,15 @@ def main():
     print("Content-type: text/html")
     print()
     #
-    info_list=get_info_list()
+    da = None
+    hara = "da"
+    form = cgi.FieldStorage()
+    if(hara not in form):
+        da = None
+    else:
+        da = form[hara].value
+    #
+    info_list=get_info_list(da)
     index(info_list)
 #
 def get_class_ids():
@@ -74,11 +82,10 @@ def get_day_rela(day):
     #
     return(day_rela)
 #
-def get_near_days_list():
+def get_near_days_list(dt):
     #
     nedalu = []
     #
-    dt = datetime.date.today()
     toda = str(dt.year)+"."+str(dt.month)+"."+str(dt.day)
     tomo = str(dt.year)+"."+str(dt.month)+"."+str(dt.day+1)
     #
@@ -87,11 +94,16 @@ def get_near_days_list():
     #
     return(nedalu)
 #
-def get_info_list():
+def get_info_list(da):
     #
     folusa = ""
     #
-    nedalu = get_near_days_list()
+    if(da == None):
+        dt = datetime.date.today()
+    else:
+        dt = datetime.strptime(da,"%Y.%m.%d")
+    #
+    nedalu = get_near_days_list(dt)
     kalalu = get_class_ids()
     #
     #print(nedalu)
