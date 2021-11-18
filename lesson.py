@@ -124,14 +124,15 @@ def select_from_lesson(valusa):
     sql += f"WHERE {valusa} "
     sql += "ORDER BY lapse_n"
     sql += ";"
-    #cursor.execute(sql)
-    #ru = cursor.fetchall()
+    #
+    cursor.execute(sql)
+    ru = cursor.fetchall()
     #
     cursor.close()
     connection.close()
     #
-    #return(ru)
-    return(sql)
+    return(ru)
+    #return(sql)
 #
 def insert_into_lesson(valusa):
     #
