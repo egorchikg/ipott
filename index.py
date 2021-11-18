@@ -98,6 +98,7 @@ def get_info_list(da):
     #
     folusa = ""
     #
+    dt = None
     if(da == None):
         dt = datetime.date.today()
     else:
