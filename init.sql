@@ -255,16 +255,16 @@ INSERT INTO teacher VALUES ("0","Чеснокова","Марина","Серге�
 INSERT INTO teacher VALUES ("0","Шамарова","Светлана","Геннадьевна","Шамарова СГ");
 INSERT INTO teacher VALUES ("0","Янковская","Татьяна","Викторовна","Янковская ТВ");
 --
-INSERT INTO lesson VALUES ("0","1","1","1","1","1","1","1");
-INSERT INTO lesson VALUES ("0","1","1","2","2","2","1","1");
-INSERT INTO lesson VALUES ("0","1","1","3","3","3","1","1");
-INSERT INTO lesson VALUES ("0","1","1","4","4","4","1","1");
-INSERT INTO lesson VALUES ("0","1","1","5","5","5","1","1");
-INSERT INTO lesson VALUES ("0","1","1","6","6","6","1","1");
-INSERT INTO lesson VALUES ("0","1","1","1","1","1","1","20");
-INSERT INTO lesson VALUES ("0","1","1","2","2","2","1","20");
-INSERT INTO lesson VALUES ("0","1","1","3","3","3","1","20");
-INSERT INTO lesson VALUES ("0","1","1","4","4","4","1","20");
-INSERT INTO lesson VALUES ("0","1","1","5","5","5","1","20");
-INSERT INTO lesson VALUES ("0","1","1","6","6","6","1","20");
+INSERT INTO lesson VALUES ("0","1","1","1","1","1","1");
+INSERT INTO lesson VALUES ("0","1","2","2","2","1","1");
+INSERT INTO lesson VALUES ("0","1","3","3","3","1","1");
+INSERT INTO lesson VALUES ("0","1","4","4","4","1","1");
+INSERT INTO lesson VALUES ("0","1","5","5","5","1","1");
+INSERT INTO lesson VALUES ("0","1","6","6","6","1","1");
+INSERT INTO lesson VALUES ("0","1","1","1","1","1","20");
+INSERT INTO lesson VALUES ("0","1","2","2","2","1","20");
+INSERT INTO lesson VALUES ("0","1","3","3","3","1","20");
+INSERT INTO lesson VALUES ("0","1","4","4","4","1","20");
+INSERT INTO lesson VALUES ("0","1","5","5","5","1","20");
+INSERT INTO lesson VALUES ("0","1","6","6","6","1","20");
 --
