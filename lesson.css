@@ -3,8 +3,9 @@ body {
   font-family: monospace;
   background-color: #325987;
 }
-.delete {
-  background-color: #F791B8;
+.select {
+  background-color: #FFE973;
+  border: 0.5vh solid #FFE973;
 }
 .insert {
   background-color: #B7F4AA;
@@ -12,9 +13,8 @@ body {
 .update {
   border: 0.5vh solid #66A1D2;
 }
-.select {
-  background-color: #FFE973;
-  border: 0.5vh solid #FFE973;
+.delete {
+  background-color: #F791B8;
 }
 .rovo {
   width: 100vw;
