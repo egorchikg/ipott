@@ -105,6 +105,7 @@ def get_info_list(da):
         dt = datetime.strptime(da,"%Y%m%d")
     #
     nedalu = get_near_days_list(dt)
+    print(nedalu)
     kalalu = get_class_ids()
     #
     #print(nedalu)
