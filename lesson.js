@@ -49,20 +49,64 @@ function get_value_of_search_input(daluhe,pa) {
   //
 }
 //
-function delete_button_click(event) {
+function select_button_click(event) {
   let button = event.currentTarget;
   let pa = button.parentNode;
   let mapa = new Map();
   //
   //alert("hi");
-  let ka = "delete";
+  let ka = "insert";
   //alert(ka);
   //
   let command = ka;
-  let lesson_id = get_value_of_hidden_input(pa);
+  let day_id = get_value_of_search_input("day",pa);
+  let class_id = get_value_of_search_input("class",pa);
+  let lapse_id = get_value_of_search_input("lapse",pa);
+  let subject_id = get_value_of_search_input("subject",pa);
+  let teacher_id = get_value_of_search_input("teacher",pa);
+  let cabinet_id = get_value_of_search_input("cabinet",pa);
+  //
+  mapa.set("command",command);
+  if(day_id != "") { mapa.set("day_id",day_id); }
+  if(class_id != "") { mapa.set("class_id",class_id); }
+  if(lapse_id != "") { mapa.set("lapse_id",lapse_id); }
+  if(subject_id != "") { mapa.set("subject_id",subject_id); }
+  if(teacher_id != "") { mapa.set("teacher_id",teacher_id); }
+  if(cabinet_id != "") { mapa.set("cabinet_id",cabinet_id); }
+  //
+  let hobo = Object.fromEntries(mapa);
+  //
+  console.log(hobo);
+  //
+  //send_post_query(hobo,"/ipott/lesson.py",parse_response);
+}
+//
+function insert_button_click(event) {
+  let button = event.currentTarget;
+  let pa = button.parentNode;
+  let mapa = new Map();
+  //
+  //alert("hi");
+  let ka = "insert";
+  //alert(ka);
+  //
+  let command = ka;
+  let lesson_id = "0";
+  let day_id = get_value_of_search_input("day",pa);
+  let class_id = get_value_of_search_input("class",pa);
+  let lapse_id = get_value_of_search_input("lapse",pa);
+  let subject_id = get_value_of_search_input("subject",pa);
+  let teacher_id = get_value_of_search_input("teacher",pa);
+  let cabinet_id = get_value_of_search_input("cabinet",pa);
   //
   mapa.set("command",command);
   mapa.set("lesson_id",lesson_id);
+  mapa.set("day_id",day_id);
+  mapa.set("class_id",class_id);
+  mapa.set("lapse_id",lapse_id);
+  mapa.set("subject_id",subject_id);
+  mapa.set("teacher_id",teacher_id);
+  mapa.set("cabinet_id",cabinet_id);
   //
   let hobo = Object.fromEntries(mapa);
   //
@@ -105,32 +149,20 @@ function update_button_click(event) {
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
 //
-function insert_button_click(event) {
+function delete_button_click(event) {
   let button = event.currentTarget;
   let pa = button.parentNode;
   let mapa = new Map();
   //
   //alert("hi");
-  let ka = "insert";
+  let ka = "delete";
   //alert(ka);
   //
   let command = ka;
-  let lesson_id = "0";
-  let day_id = get_value_of_search_input("day",pa);
-  let class_id = get_value_of_search_input("class",pa);
-  let lapse_id = get_value_of_search_input("lapse",pa);
-  let subject_id = get_value_of_search_input("subject",pa);
-  let teacher_id = get_value_of_search_input("teacher",pa);
-  let cabinet_id = get_value_of_search_input("cabinet",pa);
+  let lesson_id = get_value_of_hidden_input(pa);
   //
   mapa.set("command",command);
   mapa.set("lesson_id",lesson_id);
-  mapa.set("day_id",day_id);
-  mapa.set("class_id",class_id);
-  mapa.set("lapse_id",lapse_id);
-  mapa.set("subject_id",subject_id);
-  mapa.set("teacher_id",teacher_id);
-  mapa.set("cabinet_id",cabinet_id);
   //
   let hobo = Object.fromEntries(mapa);
   //
@@ -204,6 +236,11 @@ for(const del_button of del_buttons) {
 let upd_buttons = document.querySelectorAll("button.update");
 for(const upd_button of upd_buttons) {
   upd_button.addEventListener("click",update_button_click);
+}
+//
+let sel_buttons = document.querySelectorAll("button.select");
+for(const sel_button of sel_buttons) {
+  sel_button.addEventListener("click",select_button_click);
 }
 //
 /*
