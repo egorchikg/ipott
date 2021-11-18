@@ -102,12 +102,9 @@ def get_info_list(da):
     if(da == None):
         dt = datetime.date.today()
     else:
-        print(da)
-        dt = datetime.datetime.strptime(da,"%Y%m%d")
-        print(dt)
+        dt = datetime.datetime.strptime(da,"%Y.%m.%d")
     #
     nedalu = get_near_days_list(dt)
-    print(nedalu)
     kalalu = get_class_ids()
     #
     #print(nedalu)
