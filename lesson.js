@@ -67,12 +67,12 @@ function select_button_click(event) {
   let cabinet_id = get_value_of_search_input("cabinet",pa);
   //
   mapa.set("command",command);
-  if(day_id != "") { mapa.set("day_id",day_id); }
-  if(class_id != "") { mapa.set("class_id",class_id); }
-  if(lapse_id != "") { mapa.set("lapse_id",lapse_id); }
-  if(subject_id != "") { mapa.set("subject_id",subject_id); }
-  if(teacher_id != "") { mapa.set("teacher_id",teacher_id); }
-  if(cabinet_id != "") { mapa.set("cabinet_id",cabinet_id); }
+  if(day_id!=null) { mapa.set("day_id",day_id); }
+  if(class_id!=null) { mapa.set("class_id",class_id); }
+  if(lapse_id!=null) { mapa.set("lapse_id",lapse_id); }
+  if(subject_id!=null) { mapa.set("subject_id",subject_id); }
+  if(teacher_id!=null) { mapa.set("teacher_id",teacher_id); }
+  if(cabinet_id!=null) { mapa.set("cabinet_id",cabinet_id); }
   //
   let hobo = Object.fromEntries(mapa);
   //
