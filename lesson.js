@@ -71,6 +71,40 @@ function delete_button_click(event) {
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
 }
 //
+function update_button_click(event) {
+  let button = event.currentTarget;
+  let pa = button.parentNode;
+  let mapa = new Map();
+  //
+  //alert("hi");
+  let ka = "update";
+  //alert(ka);
+  //
+  let command = ka;
+  let lesson_id = get_value_of_hidden_input(pa);
+  let day_id = get_value_of_search_input("day",pa);
+  let class_id = get_value_of_search_input("class",pa);
+  let lapse_id = get_value_of_search_input("lapse",pa);
+  let subject_id = get_value_of_search_input("subject",pa);
+  let teacher_id = get_value_of_search_input("teacher",pa);
+  let cabinet_id = get_value_of_search_input("cabinet",pa);
+  //
+  mapa.set("command",command);
+  mapa.set("lesson_id",lesson_id);
+  mapa.set("day_id",day_id);
+  mapa.set("class_id",class_id);
+  mapa.set("lapse_id",lapse_id);
+  mapa.set("subject_id",subject_id);
+  mapa.set("teacher_id",teacher_id);
+  mapa.set("cabinet_id",cabinet_id);
+  //
+  let hobo = Object.fromEntries(mapa);
+  //
+  console.log(hobo);
+  //
+  send_post_query(hobo,"/ipott/lesson.py",parse_response);
+}
+//
 function insert_button_click(event) {
   let button = event.currentTarget;
   let pa = button.parentNode;
@@ -157,11 +191,20 @@ function delete_day_blur() {
 }
 */
 //
-let ins_button = document.querySelector("button.insert");
-ins_button.addEventListener("click",insert_button_click);
+let ins_buttons = document.querySelectorAll("button.insert");
+for(const ins_button of ins_buttons) {
+  ins_button.addEventListener("click",insert_button_click);
+}
 //
-let del_button = document.querySelector("button.delete");
-del_button.addEventListener("click",delete_button_click);
+let del_buttons = document.querySelectorAll("button.delete");
+for(const del_button of del_buttons) {
+  del_button.addEventListener("click",delete_button_click);
+}
+//
+let upd_buttons = document.querySelectorAll("button.update");
+for(const upd_button of upd_buttons) {
+  upd_button.addEventListener("click",update_button_click);
+}
 //
 /*
 let i_day = document.querySelector("input[list='day'].insert");

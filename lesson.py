@@ -83,6 +83,10 @@ def post():
         valusa = get_delete_valusa(resope)
         delete_from_lesson(valusa)
         print("deleting done!")
+    elif(resope["command"] == "update"):
+        valusa = get_update_valusa(resope)
+        update_lesson(valusa,resope["lesson_id"])
+        print("updating done!")
     else:
         print(resope["command"])
     #
@@ -99,6 +103,26 @@ def insert_into_lesson(valusa):
     cursor = connection.cursor()
     #
     sql = f"INSERT INTO lesson VALUES ({valusa});"
+    cursor.execute(sql)
+    #
+    connection.commit()
+    #
+    cursor.close()
+    connection.close()
+    #
+#
+def update_lesson(valusa,lesson_id):
+    #
+    connection = pymysql.connect(host='localhost',
+        user=_db_user,
+        password=_db_password,
+        database=_db_name,
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor)
+    #
+    cursor = connection.cursor()
+    #
+    sql = f"UPDATE lesson SET {valusa} WHERE id={lesson_id};"
     cursor.execute(sql)
     #
     connection.commit()
@@ -144,6 +168,18 @@ def get_insert_valusa(resope):
     valusa += '"'+resope["cabinet_id"]+'",'
     valusa += '"'+resope["teacher_id"]+'",'
     valusa += '"'+resope["class_id"]+'"'
+    #
+    return(valusa)
+#
+def get_update_valusa(resope):
+    #
+    valusa = ""
+    valusa += 'day_id="'+resope["day_id"]+'",'
+    valusa += 'lapse_id="'+resope["lapse_id"]+'",'
+    valusa += 'subject_id="'+resope["subject_id"]+'",'
+    valusa += 'cabinet_id="'+resope["cabinet_id"]+'",'
+    valusa += 'teacher_id="'+resope["teacher_id"]+'",'
+    valusa += 'class_id="'+resope["class_id"]+'"'
     #
     return(valusa)
 #
@@ -332,7 +368,7 @@ def get_delete_block():
     #
     #
     le = ""
-    le += get_hidden_input("5",clall)
+    le += get_hidden_input("6",clall)
     le += get_search_input("day","дата",clall)
     le += get_search_input("class","класс",clall)
     le += get_search_input("lapse","номер урока",clall)
