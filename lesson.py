@@ -132,6 +132,7 @@ def select_from_lesson(valusa):
     sql += "ORDER BY lapse_n"
     sql += ";"
     #
+    print(sql)
     #sql = "SELECT * FROM lesson;"
     #
     cursor.execute(sql)
@@ -141,7 +142,6 @@ def select_from_lesson(valusa):
     #cursor.close()
     #connection.close()
     #
-    print(sql)
     return(ru)
     #return(sql)
 #
