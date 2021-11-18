@@ -159,7 +159,8 @@ def get_info_dict_list():
     sql += "lesson.lapse_id = lapse.id AND "
     sql += "lesson.subject_id = subject.id AND "
     sql += "lesson.teacher_id = teacher.id AND "
-    sql += "lesson.cabinet_id = cabinet.id"
+    sql += "lesson.cabinet_id = cabinet.id "
+    sql += "ORDER BY lapse_n"
     sql += ";"
     #
     #print(sql)
