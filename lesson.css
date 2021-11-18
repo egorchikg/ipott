@@ -15,7 +15,7 @@ body {
   background-color: #66A1D2;
 }
 .select {
-  background-color: #FFE973;
+  border: 1vh solid #FFE973;
 }
 .rovo {
   width: 100vw;
@@ -39,9 +39,9 @@ input,button {
   box-sizing: border-box;
   font-family: monospace;
   margin-top: 3vh;
+  border-radius: 2vh;
 }
 button {
-  border-radius: 2vh;
   padding-right: 2vh;
   padding-left: 2vh;
 }
