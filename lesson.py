@@ -125,6 +125,8 @@ def select_from_lesson(valusa):
     sql += "ORDER BY lapse_n"
     sql += ";"
     #
+    sql = "SELECT * FROM lesson;"
+    #
     cursor.execute(sql)
     ru = cursor.fetchall()
     #print(ru)
