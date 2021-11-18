@@ -121,11 +121,18 @@ def select_from_lesson(valusa):
     sql += "FROM "
     sql += "lesson, day, class, "
     sql += "lapse, subject, teacher, cabinet "
-    #sql += f"WHERE {valusa} "
+    sql += "WHERE "
+    sql += "lesson.day_id = day.id AND "
+    sql += "lesson.class_id = class.id AND "
+    sql += "lesson.lapse_id = lapse.id AND "
+    sql += "lesson.subject_id = subject.id AND "
+    sql += "lesson.teacher_id = teacher.id AND "
+    sql += "lesson.cabinet_id = cabinet.id AND "
+    sql += f"{valusa} "
     sql += "ORDER BY lapse_n"
     sql += ";"
     #
-    sql = "SELECT * FROM lesson;"
+    #sql = "SELECT * FROM lesson;"
     #
     cursor.execute(sql)
     ru = cursor.fetchall()
