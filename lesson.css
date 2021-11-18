@@ -23,7 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: stretch;
+  justify-content: center;
   align-items: center;
 }
 input,button {
