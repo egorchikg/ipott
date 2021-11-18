@@ -127,6 +127,7 @@ def select_from_lesson(valusa):
     #
     cursor.execute(sql)
     ru = cursor.fetchall()
+    print(ru)
     #
     cursor.close()
     connection.close()
