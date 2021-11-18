@@ -8,10 +8,7 @@ body {
 .delete:nth-child(2n) {
   background-color: white;
 }
-.insert:nth-child(2n+1) {
-  background-color: white;
-}
-.insert:nth-child(2n) {
+.insert {
   background-color: #80EA69;
 }
 .update {
@@ -41,6 +38,7 @@ input,button {
   font-size: 2.5vh;
   box-sizing: border-box;
   font-family: monospace;
+  margin-top: 4vh;
 }
 button {
   border-radius: 2vh;
