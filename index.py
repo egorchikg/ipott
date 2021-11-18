@@ -143,7 +143,6 @@ def get_info_dict_list():
     sql = ""
     sql += "SELECT "
     sql += "cabinet.short_name AS cabinet_short_name, "
-    sql += "weekday.short_name AS weekday_short_name, "
     sql += "day.name AS day_name, "
     sql += "class.id AS class_id, "
     sql += "class.short_name AS class_short_name, "
@@ -152,10 +151,9 @@ def get_info_dict_list():
     sql += "teacher.short_name AS teacher_short_name, "
     sql += "cabinet.short_name AS cabinet_short_name "
     sql += "FROM "
-    sql += "lesson, weekday, day, class, "
+    sql += "lesson, day, class, "
     sql += "lapse, subject, teacher, cabinet "
     sql += "WHERE "
-    sql += "lesson.weekday_id = weekday.id AND "
     sql += "lesson.day_id = day.id AND "
     sql += "lesson.class_id = class.id AND "
     sql += "lesson.lapse_id = lapse.id AND "
@@ -172,6 +170,21 @@ def get_info_dict_list():
     n = 0
     #
     return(ru)
+#
+def get_weekday_from_day(day_name):
+    #
+    dt = datetime.datetime.strptime(day_name,"%Y.%m.%d")
+    wenu = dt.strftime("%w")
+    wena = ""
+    wena = "вс" if wenu=="0" else wena
+    wena = "пн" if wenu=="1" else wena
+    wena = "вт" if wenu=="2" else wena
+    wena = "ср" if wenu=="3" else wena
+    wena = "чт" if wenu=="4" else wena
+    wena = "пт" if wenu=="5" else wena
+    wena = "сб" if wenu=="6" else wena
+    #
+    return(wena)
 #
 def get_info_from_info_dict_list(
                                  info_dict_list,
@@ -196,7 +209,7 @@ def get_info_from_info_dict_list(
       #
       if(boroso):
         day_rela = get_day_rela(kura_day)
-        weekday_short_name = ru[n].get("weekday_short_name")
+        weekday_short_name = get_weekday_from_day(day_name)
         #day_name = ru[n].get("day_name")
         class_short_name = ru[n].get("class_short_name")
         #
