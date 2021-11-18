@@ -75,21 +75,62 @@ def post():
     '''
     #
     #
-    if(resope["command"] == "insert"):
+    if(False):
+        print()
+    elif(resope["command"] == "select"):
+        valusa = get_select_valusa(resope)
+        re = select_from_lesson(valusa)
+        print(re)
+    elif(resope["command"] == "insert"):
         valusa = get_insert_valusa(resope)
         insert_into_lesson(valusa)
         print("inserting done!")
-    elif(resope["command"] == "delete"):
-        valusa = get_delete_valusa(resope)
-        delete_from_lesson(valusa)
-        print("deleting done!")
     elif(resope["command"] == "update"):
         valusa = get_update_valusa(resope)
         update_lesson(valusa,resope["lesson_id"])
         print("updating done!")
+    elif(resope["command"] == "delete"):
+        valusa = get_delete_valusa(resope)
+        delete_from_lesson(valusa)
+        print("deleting done!")
     else:
         print(resope["command"])
     #
+#
+def select_from_lesson(valusa):
+    #
+    connection = pymysql.connect(host='localhost',
+        user=_db_user,
+        password=_db_password,
+        database=_db_name,
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor)
+    #
+    cursor = connection.cursor()
+    #
+    sql = ""
+    sql += "SELECT "
+    sql += "cabinet.short_name AS cabinet_short_name, "
+    sql += "day.name AS day_name, "
+    sql += "class.id AS class_id, "
+    sql += "class.short_name AS class_short_name, "
+    sql += "lapse.n AS lapse_n, "
+    sql += "subject.short_name AS subject_short_name, "
+    sql += "teacher.short_name AS teacher_short_name, "
+    sql += "cabinet.short_name AS cabinet_short_name "
+    sql += "FROM "
+    sql += "lesson, day, class, "
+    sql += "lapse, subject, teacher, cabinet "
+    sql += f"WHERE {valusa} "
+    sql += "ORDER BY lapse_n"
+    sql += ";"
+    cursor.execute(sql)
+    ru = cursor.fetchall()
+    #
+    cursor.close()
+    connection.close()
+    #
+    return(ru)
 #
 def insert_into_lesson(valusa):
     #
@@ -151,10 +192,35 @@ def delete_from_lesson(valusa):
     connection.close()
     #
 #
-def get_delete_valusa(resope):
+def get_select_valusa(resope):
     #
-    valusa = ""
-    valusa += 'id='+resope["lesson_id"]+''
+    valusa = None
+    z = 0
+    va = []
+    #
+    if("day_id" in set(resope.keys())):
+      va.append('lesson.day_id="'+resope["day_id"]+'"')
+      z+=1
+    if("class_id" in set(resope.keys())):
+      va.append('lesson.class_id="'+resope["class_id"]+'"')
+      z+=1
+    if("lapse_id" in set(resope.keys())):
+      va.append('lesson.lapse_id="'+resope["lapse_id"]+'"')
+      z+=1
+    if("subject_id" in set(resope.keys())):
+      va.append('lesson.subject_id="'+resope["subject_id"]+'"')
+      z+=1
+    if("cabinet_id" in set(resope.keys())):
+      va.append('lesson.cabinet_id="'+resope["cabinet_id"]+'"')
+      z+=1
+    if("teacher_id" in set(resope.keys())):
+      va.append('lesson.teacher_id="'+resope["teacher_id"]+'"')
+      z+=1
+    #
+    if(z > 0):
+      valusa = " AND ".join(va)
+    else:
+      valusa = "lesson.id != 0"
     #
     return(valusa)
 #
@@ -180,6 +246,13 @@ def get_update_valusa(resope):
     valusa += 'cabinet_id="'+resope["cabinet_id"]+'",'
     valusa += 'teacher_id="'+resope["teacher_id"]+'",'
     valusa += 'class_id="'+resope["class_id"]+'"'
+    #
+    return(valusa)
+#
+def get_delete_valusa(resope):
+    #
+    valusa = ""
+    valusa += 'id='+resope["lesson_id"]+''
     #
     return(valusa)
 #

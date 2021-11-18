@@ -80,7 +80,7 @@ function select_button_click(event) {
     //
     console.log(hobo);
     //
-    //send_post_query(hobo,"/ipott/lesson.py",parse_response);
+    send_post_query(hobo,"/ipott/lesson.py",parse_response);
   }
 }
 //
