@@ -42,7 +42,7 @@ input,button {
   border-radius: 2vh;
 }
 button {
-  background-color: white;
+  background-color: rgba(0,0,0,0);
   padding-right: 2vh;
   padding-left: 2vh;
 }
