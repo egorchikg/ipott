@@ -22,7 +22,7 @@ body {
 }
 .rovo {
   width: 100vw;
-  height: 4vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
