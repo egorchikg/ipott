@@ -34,14 +34,6 @@ short_name TEXT,
 PRIMARY KEY (id)
 );
 --
-CREATE TABLE weekday (
-id INT(11) NOT NULL AUTO_INCREMENT,
-name TEXT,
-short_name TEXT,
-n INT(11),
-PRIMARY KEY (id)
-);
---
 CREATE TABLE lapse (
 id INT(11) NOT NULL AUTO_INCREMENT,
 n INT(11),
@@ -69,7 +61,6 @@ PRIMARY KEY (id)
 CREATE TABLE lesson (
 id INT(11) NOT NULL AUTO_INCREMENT,
 day_id INT(11),
-weekday_id INT(11),
 lapse_id INT(11),
 subject_id INT(11),
 cabinet_id INT(11),
@@ -81,12 +72,6 @@ PRIMARY KEY (id)
 ALTER TABLE lesson
 ADD FOREIGN KEY (day_id)
 REFERENCES day(id)
-ON DELETE CASCADE
-ON UPDATE CASCADE;
---
-ALTER TABLE lesson
-ADD FOREIGN KEY (weekday_id)
-REFERENCES weekday(id)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 --
@@ -120,11 +105,12 @@ REFERENCES class(id)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 --
-INSERT INTO day VALUES ("0","2021.10.25");
-INSERT INTO day VALUES ("0","2021.10.26");
-INSERT INTO day VALUES ("0","2021.10.27");
-INSERT INTO day VALUES ("0","2021.10.28");
-INSERT INTO day VALUES ("0","2021.10.29");
+INSERT INTO day VALUES ("0","2021.11.18");
+INSERT INTO day VALUES ("0","2021.11.19");
+INSERT INTO day VALUES ("0","2021.11.20");
+INSERT INTO day VALUES ("0","2021.11.21");
+INSERT INTO day VALUES ("0","2021.11.22");
+INSERT INTO day VALUES ("0","2021.11.23");
 --
 INSERT INTO cabinet VALUES ("0","Актовый зал","акт.");
 INSERT INTO cabinet VALUES ("0","Учительская","уч.");
@@ -158,14 +144,6 @@ INSERT INTO cabinet VALUES ("0","Кабинет № 24","24к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 25","25к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 26","26к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 27","27к.");
---
-INSERT INTO weekday VALUES ("0","Воскресенье","вс","0");
-INSERT INTO weekday VALUES ("0","Понедельник","пн","1");
-INSERT INTO weekday VALUES ("0","Вторник","вт","2");
-INSERT INTO weekday VALUES ("0","Среда","ср","3");
-INSERT INTO weekday VALUES ("0","Четверг","чт","4");
-INSERT INTO weekday VALUES ("0","Пятница","пт","5");
-INSERT INTO weekday VALUES ("0","Суббота","cб","6");
 --
 INSERT INTO subject VALUES ("0","Физкультура","Физ-ра");
 INSERT INTO subject VALUES ("0","Литература","Литература");

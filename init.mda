@@ -39,18 +39,6 @@ satara
 
 karata  
 tabala  
-weekday  
-id  
-henete  
-name  
-satara  
-short_name  
-satara  
-n  
-henete  
-
-karata  
-tabala  
 lapse  
 id  
 henete  
@@ -92,8 +80,6 @@ id
 henete  
 day_id  
 henete  
-weekday_id  
-henete  
 lapse_id  
 henete  
 subject_id  
@@ -110,13 +96,6 @@ roloto
 lesson  
 day_id  
 day  
-id  
-
-karata  
-roloto  
-lesson  
-weekday_id  
-weekday  
 id  
 
 karata  
@@ -158,19 +137,22 @@ henese
 day  
 {  
 0  
-2021.10.25  
+2021.11.18  
 
 0  
-2021.10.26  
+2021.11.19  
 
 0  
-2021.10.27  
+2021.11.20  
 
 0  
-2021.10.28  
+2021.11.21  
 
 0  
-2021.10.29  
+2021.11.22  
+
+0  
+2021.11.23  
 }  
 
 henese  
@@ -303,45 +285,6 @@ cabinet
 0  
 Кабинет № 27  
 27к.  
-}  
-
-henese  
-weekday  
-{  
-0  
-Воскресенье  
-вс  
-0  
-
-0  
-Понедельник  
-пн  
-1  
-
-0  
-Вторник  
-вт  
-2  
-
-0  
-Среда  
-ср  
-3  
-
-0  
-Четверг  
-чт  
-4  
-
-0  
-Пятница  
-пт  
-5  
-
-0  
-Суббота  
-cб  
-6  
 }  
 
 henese  

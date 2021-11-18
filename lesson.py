@@ -66,7 +66,6 @@ def post():
         "command": "insert",
         "lesson_id": "0",
         "day_id": "1",
-        "weekday_id": "1",
         "lapse_id": "1",
         "subject_id": "1",
         "cabinet_id": "1",
@@ -132,7 +131,6 @@ def get_delete_valusa(resope):
     #
     valusa = ""
     valusa += 'day_id="'+resope["day_id"]+'" AND '
-    valusa += 'weekday_id="'+resope["weekday_id"]+'" AND '
     valusa += 'lapse_id="'+resope["lapse_id"]+'" AND '
     valusa += 'subject_id="'+resope["subject_id"]+'" AND '
     valusa += 'cabinet_id="'+resope["cabinet_id"]+'" AND '
@@ -146,7 +144,6 @@ def get_insert_valusa(resope):
     valusa = ""
     valusa += '"'+resope["lesson_id"]+'",'
     valusa += '"'+resope["day_id"]+'",'
-    valusa += '"'+resope["weekday_id"]+'",'
     valusa += '"'+resope["lapse_id"]+'",'
     valusa += '"'+resope["subject_id"]+'",'
     valusa += '"'+resope["cabinet_id"]+'",'
@@ -198,23 +195,6 @@ def get_search_input(tname,phold,cla,disabled=False):
     leseke += f'placeholder="{phold}" class="{cla}" '
     leseke += 'disabled' if disabled else ''
     leseke += '>'
-    #
-    return(leseke)
-#
-def get_weekday_datalist():
-    #
-    tname = "weekday"
-    tdict = get_dict_from_table(tname)
-    leseke = ""
-    leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rn = rova["n"]
-        rnm = rova["short_name"]
-        leseke += f'<option data-id="{rid}" '
-        leseke += f'data-n="{rn}">{rnm}</option>'
-    #
-    leseke += '</datalist>'
     #
     return(leseke)
 #
@@ -297,7 +277,6 @@ def get_datalists():
     #
     lesene = ""
     lesene += get_day_datalist()
-    lesene += get_weekday_datalist()
     lesene += get_class_datalist()
     lesene += get_lapse_datalist()
     lesene += get_subject_datalist()
@@ -319,7 +298,6 @@ def get_insert_block():
     #
     le = ""
     le += get_search_input("day","дата",cla)
-    le += get_search_input("weekday","день недели",cla,True)
     le += get_search_input("class","класс",cla)
     le += get_search_input("lapse","номер урока",cla)
     le += get_search_input("subject","предмет",cla)
@@ -335,7 +313,6 @@ def get_delete_block():
     #
     le = ""
     le += get_search_input("day","дата",cla)
-    le += get_search_input("weekday","день недели",cla,True)
     le += get_search_input("class","класс",cla)
     le += get_search_input("lapse","номер урока",cla)
     le += get_search_input("subject","предмет",cla)
