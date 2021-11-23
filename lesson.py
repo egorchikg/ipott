@@ -127,12 +127,14 @@ def select_from_lesson(valusa):
     sql += "lesson.lapse_id = lapse.id AND "
     sql += "lesson.subject_id = subject.id AND "
     sql += "lesson.teacher_id = teacher.id AND "
-    sql += "lesson.cabinet_id = cabinet.id AND "
-    sql += f"{valusa} "
+    sql += "lesson.cabinet_id = cabinet.id "
+    #sql += "AND "
+    #sql += f"{valusa} "
     sql += "ORDER BY lapse_n"
     sql += ";"
     #
-    print(sql)
+    lo = f"<script>console.log('{sql}');</script>"
+    print(lo)
     #sql = "SELECT * FROM lesson;"
     #
     cursor.execute(sql)
