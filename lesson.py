@@ -84,16 +84,16 @@ def post():
         print(re)
     elif(resope["command"] == "insert"):
         valusa = get_insert_valusa(resope)
-        insert_into_lesson(valusa)
-        print("inserting done!")
+        re = insert_into_lesson(valusa)
+        print(re)
     elif(resope["command"] == "update"):
         valusa = get_update_valusa(resope)
-        update_lesson(valusa,resope["lesson_id"])
-        print("updating done!")
+        re = update_lesson(valusa,resope["lesson_id"])
+        print(re)
     elif(resope["command"] == "delete"):
         valusa = get_delete_valusa(resope)
-        delete_from_lesson(valusa)
-        print("deleting done!")
+        re = delete_from_lesson(valusa)
+        print(re)
     else:
         print(resope["command"])
     #
@@ -181,6 +181,7 @@ def select_from_lesson(resope):
     hedelu = get_info_dict_list()
     #
     fedelu = filter_dict_list(hedelu,resope)
+    fedelu["command"] = "append"
     #
     #print(fedelu)
     #print()
@@ -211,6 +212,10 @@ def insert_into_lesson(valusa):
     cursor.close()
     connection.close()
     #
+    ru = {}
+    ru["command"] = "alert"
+    ru["message"] = "inserting done!"
+    return(ru)
 #
 def update_lesson(valusa,lesson_id):
     #
@@ -231,6 +236,10 @@ def update_lesson(valusa,lesson_id):
     cursor.close()
     connection.close()
     #
+    ru = {}
+    ru["command"] = "alert"
+    ru["message"] = "updating done!"
+    return(ru)
 #
 def delete_from_lesson(valusa):
     #
@@ -251,6 +260,10 @@ def delete_from_lesson(valusa):
     cursor.close()
     connection.close()
     #
+    ru = {}
+    ru["command"] = "alert"
+    ru["message"] = "deleting done!"
+    return(ru)
 #
 def get_select_valusa(resope):
     #

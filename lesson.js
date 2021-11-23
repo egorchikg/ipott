@@ -20,8 +20,14 @@ function parse_response(resope) {
   let hobo = JSON.parse(resope);
   //
   for(let ho of hobo) {
+    if(false) {
+      console.log();
+    } else if(ho.command == "alert") {
+      alert(ho.message);
+    } else if(ho.command == "append") {
+      console.log("append");
+    }
     console.log(ho);
-    console.log(ho.day_id);
   }
   //
 }
