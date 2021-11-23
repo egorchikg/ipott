@@ -117,13 +117,27 @@ def get_info_dict_list():
     sql += "lesson.lapse_id AS lapse_id, "
     sql += "lesson.subject_id AS subject_id, "
     sql += "lesson.teacher_id AS teacher_id, "
-    sql += "lesson.cabinet_id AS cabinet_id "
-    sql += "FROM lesson, lapse "
-    sql += "WHERE lesson.lapse_id = lapse.id "
+    sql += "lesson.cabinet_id AS cabinet_id, "
+    #
+    sql += "day.name AS day_name, "
+    sql += "class.short_name AS class_name, "
+    sql += "lapse.n AS lapse_name, "
+    sql += "subject.short_name AS subject_name, "
+    sql += "teacher.short_name AS teacher_name, "
+    sql += "cabinet.short_name AS cabinet_name "
+    #
+    sql += "FROM "
+    sql += "lesson,day,class,lapse,subject,teacher,cabinet "
+    sql += "WHERE "
+    sql += "lesson.day_id = day.id AND "
+    sql += "lesson.class_id = class.id AND "
+    sql += "lesson.lapse_id = lapse.id AND "
+    sql += "lesson.subject_id = subject.id AND "
+    sql += "lesson.teacher_id = teacher.id AND "
+    sql += "lesson.cabinet_id = cabinet.id "
     sql += "ORDER BY lapse.n"
     sql += ";"
     #
-    #lo = f"<script>console.log('{sql}');</script>"
     #print(sql)
     #sql = "SELECT * FROM lesson;"
     #
@@ -162,11 +176,6 @@ def filter_dict_list(info_dict_list,resope):
             if(str(ru[n][ve]) == str(re[ve])):
                 ka+=1
             #
-            #print(ru[n][ve])
-            #print(re[ve])
-            #
-        #
-        #print(ka)
         #
         if(ka == len(re.keys())):
             hotu.append(ru[n])
