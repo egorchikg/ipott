@@ -6,6 +6,7 @@ import datetime
 import pymysql
 import pymysql.cursors
 import os
+import time
 #
 _db_user = "ipott_user"
 _db_password = "ipott_pass"
@@ -120,7 +121,8 @@ def add_new_dates():
             sql = f'INSERT INTO day VALUES (0,"{he}");'
             cursor.execute(sql)
         except Exception as ke:
-            print(ke)
+            #print(ke)
+            time.sleep(0)
     #
     connection.commit()
     #
