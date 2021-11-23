@@ -19,7 +19,7 @@ function parse_response(resope) {
   //
   let hobo = JSON.parse(resope);
   //
-  alert(hobo);
+  console.log(hobo);
   //
 }
 //
