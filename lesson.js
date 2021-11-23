@@ -34,13 +34,13 @@ function parse_response(resope) {
 }
 //
 function append_ho(ho) {
-  #
+  //
   let hidden_input = document.createElement('input');
   hidden_input.setAttribute("type","hidden");
   hidden_input.classList.add("update");
   hidden_input.classList.add("delete");
   hidden_input.setAttribute("value",ho.lesson_id);
-  #
+  //
   let day_input = document.createElement('input');
   day_input.setAttribute("type","search");
   day_input.setAttribute("list","day");
@@ -48,7 +48,7 @@ function append_ho(ho) {
   day_input.classList.add("update");
   day_input.classList.add("delete");
   day_input.setAttribute("value",ho.day_name);
-  #
+  //
   let class_input = document.createElement('input');
   class_input.setAttribute("type","search");
   class_input.setAttribute("list","class");
@@ -56,7 +56,7 @@ function append_ho(ho) {
   class_input.classList.add("update");
   class_input.classList.add("delete");
   class_input.setAttribute("value",ho.class_name);
-  #
+  //
   let lapse_input = document.createElement('input');
   lapse_input.setAttribute("type","search");
   lapse_input.setAttribute("list","lapse");
@@ -64,7 +64,7 @@ function append_ho(ho) {
   lapse_input.classList.add("update");
   lapse_input.classList.add("delete");
   lapse_input.setAttribute("value",ho.lapse_name);
-  #
+  //
   let subject_input = document.createElement('input');
   subject_input.setAttribute("type","search");
   subject_input.setAttribute("list","subject");
@@ -72,7 +72,7 @@ function append_ho(ho) {
   subject_input.classList.add("update");
   subject_input.classList.add("delete");
   subject_input.setAttribute("value",ho.subject_name);
-  #
+  //
   let teacher_input = document.createElement('input');
   teacher_input.setAttribute("type","search");
   teacher_input.setAttribute("list","teacher");
@@ -80,7 +80,7 @@ function append_ho(ho) {
   teacher_input.classList.add("update");
   teacher_input.classList.add("delete");
   teacher_input.setAttribute("value",ho.teacher_name);
-  #
+  //
   let cabinet_input = document.createElement('input');
   cabinet_input.setAttribute("type","search");
   cabinet_input.setAttribute("list","cabinet");
@@ -88,17 +88,17 @@ function append_ho(ho) {
   cabinet_input.classList.add("update");
   cabinet_input.classList.add("delete");
   cabinet_input.setAttribute("value",ho.cabinet_name);
-  #
+  //
   let update_button = document.createElement('button');
   update_button.classList.add("update");
   update_button.addEventListener("click",update_button_click);
   update_button.innerHTML = "Изменить";
-  #
+  //
   let delete_button = document.createElement('button');
   delete_button.classList.add("delete");
   delete_button.addEventListener("click",delete_button_click);
   delete_button.innerHTML = "Удалить";
-  #
+  //
   let rovo_div = document.createElement('div');
   rovo_div.classList.add("rovo");
   rovo_div.append(hidden_input);
@@ -110,10 +110,10 @@ function append_ho(ho) {
   rovo_div.append(cabinet_input);
   rovo_div.append(update_button);
   rovo_div.append(delete_button);
-  #
+  //
   let sc = document.body.querySelector("script");
   let rovo_in = document.body.insertBefore(rovo_div,sc);
-  #
+  //
 }
 //
 function get_value_of_hidden_input(pa) {
