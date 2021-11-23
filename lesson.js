@@ -19,8 +19,10 @@ function parse_response(resope) {
   //
   let hobo = JSON.parse(resope);
   //
-  console.log(typeof hobo);
-  console.log(hobo);
+  for(let ho of hobo) {
+    console.log(ho);
+    console.log(ho.day_id);
+  }
   //
 }
 //
