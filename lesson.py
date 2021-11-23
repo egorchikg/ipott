@@ -180,6 +180,8 @@ def select_from_lesson(resope):
     #
     #fedelu = filter_dict_list(hedelu,resope)
     #
+    print("sele")
+    #
     return(hedelu)
     #
 #
