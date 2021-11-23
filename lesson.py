@@ -128,7 +128,7 @@ def get_info_dict_list():
     #
     cursor.execute(sql)
     ru = cursor.fetchall()
-    print(ru)
+    #print(ru)
     #
     #cursor.close()
     #connection.close()
