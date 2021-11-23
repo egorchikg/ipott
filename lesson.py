@@ -138,7 +138,7 @@ def get_near_days(nu):
     #
     for i in range(nu):
         dt += datetime.datetime.timedelta(days=1)
-        dts = dt.strftime(dt,"%Y.%m.%d")
+        dts = dt.strftime("%Y.%m.%d")
         re.append(dts)
     #
     return(re)
