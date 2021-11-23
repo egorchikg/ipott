@@ -212,10 +212,12 @@ def insert_into_lesson(valusa):
     cursor.close()
     connection.close()
     #
+    rule = []
     ru = {}
     ru["command"] = "alert"
     ru["message"] = "inserting done!"
-    re = json.dumps(ru)
+    rule.append(ru)
+    re = json.dumps(rule)
     return(re)
 #
 def update_lesson(valusa,lesson_id):
@@ -237,10 +239,12 @@ def update_lesson(valusa,lesson_id):
     cursor.close()
     connection.close()
     #
+    rule = []
     ru = {}
     ru["command"] = "alert"
     ru["message"] = "updating done!"
-    re = json.dumps(ru)
+    rule.append(ru)
+    re = json.dumps(rule)
     return(re)
 #
 def delete_from_lesson(valusa):
@@ -262,10 +266,12 @@ def delete_from_lesson(valusa):
     cursor.close()
     connection.close()
     #
+    rule = []
     ru = {}
     ru["command"] = "alert"
     ru["message"] = "deleting done!"
-    re = json.dumps(ru)
+    rule.append(ru)
+    re = json.dumps(rule)
     return(re)
 #
 def get_select_valusa(resope):
