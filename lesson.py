@@ -186,7 +186,9 @@ def select_from_lesson(resope):
     #print("sele")
     #print()
     #
-    return(fedelu)
+    re = json.dumps(fedelu)
+    #
+    return(re)
     #
 #
 def insert_into_lesson(valusa):
