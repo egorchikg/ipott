@@ -144,6 +144,15 @@ function get_value_of_search_input(daluhe,pa) {
   //
 }
 //
+function delete_excess_rovos() {
+  let rovos = document.querySelectorAll(".rovo");
+  for(let rovo of rovos) {
+    if(!rovo.classList.contains("first")) {
+      rovo.remove();
+    }
+  }
+}
+//
 function select_button_click(event) {
   let button = event.currentTarget;
   let pa = button.parentNode;
@@ -177,6 +186,8 @@ function select_button_click(event) {
     //
     send_post_query(hobo,"/ipott/lesson.py",parse_response);
   }
+  //
+  delete_excess_rovos();
 }
 //
 function insert_button_click(event) {
@@ -267,6 +278,8 @@ function delete_button_click(event) {
   console.log(hobo);
   //
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
+  //
+  pa.remove();
 }
 //
 /*
