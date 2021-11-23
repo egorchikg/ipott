@@ -112,15 +112,12 @@ def add_new_dates():
     #
     cursor = connection.cursor()
     #
-    sql = ""
-    #
     dale = get_near_days(7)
-    print(f"<script>console.log('{dale}');</script>")
+    #print(f"<script>console.log('{dale}');</script>")
     #
     for he in dale:
-        sql += f"INSERT INTO day VALUES (0,'{he}');"
-    #
-    cursor.execute(sql)
+        sql = f'INSERT INTO day VALUES (0,"{he}");'
+        cursor.execute(sql)
     #
     connection.commit()
     #
