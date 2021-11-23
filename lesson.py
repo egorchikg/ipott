@@ -165,6 +165,8 @@ def filter_dict_list(info_dict_list,resope):
             ka+=1 if ru[n][ve] == re[ve] else ka
             #
         #
+        print(ka)
+        #
         if(ka == len(re.keys())):
             hotu.append(ru[n])
         #
