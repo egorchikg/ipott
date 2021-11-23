@@ -99,7 +99,7 @@ def post():
         print(resope["command"])
     #
 #
-def get_info_dict_list(valusa):
+def get_info_dict_list():
     #
     connection = pymysql.connect(host='localhost',
         user=_db_user,
