@@ -78,8 +78,8 @@ def post():
     if(False):
         print()
     elif(resope["command"] == "select"):
-        valusa = get_select_valusa(resope)
-        re = select_from_lesson(valusa)
+        #valusa = get_select_valusa(resope)
+        re = select_from_lesson(resope)
         print(re)
     elif(resope["command"] == "insert"):
         valusa = get_insert_valusa(resope)
@@ -97,7 +97,7 @@ def post():
         print(resope["command"])
     #
 #
-def select_from_lesson(valusa):
+def get_info_dict_list(valusa):
     #
     connection = pymysql.connect(host='localhost',
         user=_db_user,
@@ -110,7 +110,6 @@ def select_from_lesson(valusa):
     #
     sql = ""
     sql += "SELECT "
-    sql += "cabinet.short_name AS cabinet_short_name, "
     sql += "day.name AS day_name, "
     sql += "class.id AS class_id, "
     sql += "class.short_name AS class_short_name, "
@@ -146,6 +145,40 @@ def select_from_lesson(valusa):
     #
     return(ru)
     #return(sql)
+#
+def filter_dict_list(info_dict_list,resope):
+    #
+    hotu = []
+    ru = info_dict_list
+    re = resope
+    #
+    if(len(ru) == 0):
+      return(output)
+    #
+    n = 0
+    del re["command"]
+    #
+    while(n < len(ru)):
+        ka = 0
+        for ve in re.keys():
+            #
+            ka+=1 if ru[n][ve] == re[ve] else ka+=0
+            #
+        #
+        if(ka == len(re.keys())):
+            hotu.append(ru[n])
+        #
+    #
+    return(hotu)
+    #
+#
+def select_from_lesson(resope):
+    #
+    hedelu = get_info_dict_list()
+    fedelu = filter_dict_list(hedelu,resope)
+    #
+    return(fedelu)
+    #
 #
 def insert_into_lesson(valusa):
     #

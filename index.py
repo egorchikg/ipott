@@ -142,7 +142,6 @@ def get_info_dict_list():
     #
     sql = ""
     sql += "SELECT "
-    sql += "cabinet.short_name AS cabinet_short_name, "
     sql += "day.name AS day_name, "
     sql += "class.id AS class_id, "
     sql += "class.short_name AS class_short_name, "
