@@ -118,7 +118,7 @@ def get_info_dict_list():
     sql += "lesson.teacher_id AS teacher_id, "
     sql += "lesson.cabinet_id AS cabinet_id "
     sql += "FROM lesson, lapse "
-    sql += "WHERE lesson.lapse_id = lapse.id"
+    sql += "WHERE lesson.lapse_id = lapse.id "
     sql += "ORDER BY lapse.n"
     sql += ";"
     #
