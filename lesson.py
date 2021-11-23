@@ -133,7 +133,7 @@ def get_near_days(nu):
     re = []
     #
     dt = datetime.date.today()
-    dts = dt.strftime(dt,"%Y.%m.%d")
+    dts = dt.strftime("%Y.%m.%d")
     re.append(dts)
     #
     for i in range(nu):
