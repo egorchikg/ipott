@@ -215,7 +215,8 @@ def insert_into_lesson(valusa):
     ru = {}
     ru["command"] = "alert"
     ru["message"] = "inserting done!"
-    return(ru)
+    re = json.dumps(ru)
+    return(re)
 #
 def update_lesson(valusa,lesson_id):
     #
@@ -239,7 +240,8 @@ def update_lesson(valusa,lesson_id):
     ru = {}
     ru["command"] = "alert"
     ru["message"] = "updating done!"
-    return(ru)
+    re = json.dumps(ru)
+    return(re)
 #
 def delete_from_lesson(valusa):
     #
@@ -263,7 +265,8 @@ def delete_from_lesson(valusa):
     ru = {}
     ru["command"] = "alert"
     ru["message"] = "deleting done!"
-    return(ru)
+    re = json.dumps(ru)
+    return(re)
 #
 def get_select_valusa(resope):
     #
