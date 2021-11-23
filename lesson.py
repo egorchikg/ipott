@@ -132,8 +132,8 @@ def get_info_dict_list(valusa):
     sql += "ORDER BY lapse_n"
     sql += ";"
     #
-    lo = f"<script>console.log('{sql}');</script>"
-    print(lo)
+    #lo = f"<script>console.log('{sql}');</script>"
+    #print(lo)
     #sql = "SELECT * FROM lesson;"
     #
     cursor.execute(sql)
