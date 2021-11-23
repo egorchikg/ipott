@@ -79,7 +79,8 @@ def post():
         print()
     elif(resope["command"] == "select"):
         #valusa = get_select_valusa(resope)
-        re = select_from_lesson(resope)
+        re = ""
+        #re += select_from_lesson(resope)
         re += "\nhaha"
         print(re)
     elif(resope["command"] == "insert"):
