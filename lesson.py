@@ -142,7 +142,7 @@ def filter_dict_list(info_dict_list,resope):
     ru = info_dict_list
     re = resope
     #
-    print("filter")
+    #print("filter")
     #
     if(len(ru) == 0):
       print("lo")
@@ -181,12 +181,12 @@ def select_from_lesson(resope):
     #
     fedelu = filter_dict_list(hedelu,resope)
     #
-    print(fedelu)
-    print()
-    print("sele")
-    print()
+    #print(fedelu)
+    #print()
+    #print("sele")
+    #print()
     #
-    return(hedelu)
+    return(fedelu)
     #
 #
 def insert_into_lesson(valusa):
