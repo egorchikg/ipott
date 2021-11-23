@@ -161,11 +161,11 @@ def filter_dict_list(info_dict_list,resope):
             if(str(ru[n][ve]) == str(re[ve])):
                 ka+=1
             #
-            print(ru[n][ve])
-            print(re[ve])
+            #print(ru[n][ve])
+            #print(re[ve])
             #
         #
-        print(ka)
+        #print(ka)
         #
         if(ka == len(re.keys())):
             hotu.append(ru[n])
