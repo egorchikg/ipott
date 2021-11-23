@@ -19,6 +19,7 @@ function parse_response(resope) {
   //
   let hobo = JSON.parse(resope);
   //
+  console.log(typeof hobo);
   console.log(hobo);
   //
 }
