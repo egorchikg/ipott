@@ -152,6 +152,8 @@ def filter_dict_list(info_dict_list,resope):
     ru = info_dict_list
     re = resope
     #
+    print("filter")
+    #
     if(len(ru) == 0):
       print("lo")
       return(hotu)
