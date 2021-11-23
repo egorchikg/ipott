@@ -162,7 +162,7 @@ def filter_dict_list(info_dict_list,resope):
         ka = 0
         for ve in re.keys():
             #
-            ka+=1 if ru[n][ve] == re[ve] else ka+=0
+            ka+=1 if ru[n][ve] == re[ve] else ka
             #
         #
         if(ka == len(re.keys())):
