@@ -116,8 +116,11 @@ def add_new_dates():
     #print(f"<script>console.log('{dale}');</script>")
     #
     for he in dale:
-        sql = f'INSERT INTO day VALUES (0,"{he}");'
-        cursor.execute(sql)
+        try:
+            sql = f'INSERT INTO day VALUES (0,"{he}");'
+            cursor.execute(sql)
+        except Exception as ke:
+            print(ke)
     #
     connection.commit()
     #
