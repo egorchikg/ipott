@@ -15,9 +15,11 @@ async function send_post_query (
   funuke(resule);
 }
 //
-function parse_response (resope) {
+function parse_response(resope) {
   //
-  alert(resope);
+  let hobo = JSON.parse(resope);
+  //
+  alert(hobo);
   //
 }
 //

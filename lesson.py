@@ -57,7 +57,8 @@ def get():
 #
 def post():
     #
-    print("Content-type: text/html;charset=utf-8")
+    #print("Content-type: text/html;charset=utf-8")
+    print("Content-Type: application/json;charset=utf-8")
     print()
     #
     resope = json.load(sys.stdin)
