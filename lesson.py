@@ -110,35 +110,25 @@ def get_info_dict_list():
     #
     sql = ""
     sql += "SELECT "
-    sql += "day.name AS day_name, "
-    sql += "class.id AS class_id, "
-    sql += "class.short_name AS class_short_name, "
-    sql += "lapse.n AS lapse_n, "
-    sql += "subject.short_name AS subject_short_name, "
-    sql += "teacher.short_name AS teacher_short_name, "
-    sql += "cabinet.short_name AS cabinet_short_name "
-    sql += "FROM "
-    sql += "lesson, day, class, "
-    sql += "lapse, subject, teacher, cabinet "
-    sql += "WHERE "
-    sql += "lesson.day_id = day.id AND "
-    sql += "lesson.class_id = class.id AND "
-    sql += "lesson.lapse_id = lapse.id AND "
-    sql += "lesson.subject_id = subject.id AND "
-    sql += "lesson.teacher_id = teacher.id AND "
-    sql += "lesson.cabinet_id = cabinet.id "
-    #sql += "AND "
-    #sql += f"{valusa} "
-    sql += "ORDER BY lapse_n"
+    sql += "id AS lesson_id, "
+    sql += "day_id, "
+    sql += "class_id, "
+    sql += "lapse_id, "
+    sql += "subject_id, "
+    sql += "teacher_id, "
+    sql += "cabinet_id "
+    sql += "FROM lesson, lapse "
+    sql += "WHERE lesson.lapse_id = lapse.id"
+    sql += "ORDER BY lapse.n"
     sql += ";"
     #
     #lo = f"<script>console.log('{sql}');</script>"
-    #print(lo)
+    #print(sql)
     #sql = "SELECT * FROM lesson;"
     #
     cursor.execute(sql)
     ru = cursor.fetchall()
-    #print(ru)
+    print(ru)
     #
     #cursor.close()
     #connection.close()
