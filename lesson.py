@@ -162,12 +162,13 @@ def filter_dict_list(info_dict_list,resope):
     del re["command"]
     #
     print(len(ru))
-    print(re.keys())
+    print(set(re.keys()))
     #
     while(n < len(ru)):
         ka = 0
         for ve in set(re.keys()):
             #
+            print(ve)
             ka+=1 if ru[n][ve] == re[ve] else ka
             #
         #
