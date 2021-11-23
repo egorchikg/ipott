@@ -14,6 +14,8 @@ _pattern = "lesson.html"
 #
 def menene():
     #
+    add_new_dates()
+    #
     reqmet = os.environ["REQUEST_METHOD"]
     #reqmet = "GET"
     #reqmet = "POST"
@@ -96,6 +98,51 @@ def post():
         print(re)
     else:
         print(resope["command"])
+    #
+#
+def add_new_dates():
+    #
+    #
+    connection = pymysql.connect(host='localhost',
+        user=_db_user,
+        password=_db_password,
+        database=_db_name,
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor)
+    #
+    cursor = connection.cursor()
+    #
+    sql = ""
+    #
+    dale = get_near_days(7)
+    print(f"<script>console.log('{dale}');</script>")
+    exit()
+    #
+    for he in dale:
+        sql += f"INSERT INTO day VALUES (0,'{he}');"
+    #
+    cursor.execute(sql)
+    #
+    connection.commit()
+    #
+    cursor.close()
+    connection.close()
+    #
+#
+def get_near_days(nu):
+    #
+    re = []
+    #
+    dt = datetime.date.today()
+    dts = dt.strftime(dt,"%Y.%m.%d")
+    re.append(dts)
+    #
+    for i in range(nu):
+        dt += datetime.datetime.timedelta(days=1)
+        dts = dt.strftime(dt,"%Y.%m.%d")
+        re.append(dts)
+    #
+    return(re)
     #
 #
 def get_info_dict_list():
