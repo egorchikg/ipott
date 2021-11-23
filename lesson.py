@@ -181,7 +181,8 @@ def select_from_lesson(resope):
     hedelu = get_info_dict_list()
     #
     fedelu = filter_dict_list(hedelu,resope)
-    fedelu["command"] = "append"
+    for he in fedelu:
+        he["command"] = "append"
     #
     #print(fedelu)
     #print()
