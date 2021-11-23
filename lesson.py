@@ -177,9 +177,10 @@ def filter_dict_list(info_dict_list,resope):
 def select_from_lesson(resope):
     #
     hedelu = get_info_dict_list()
+    #
     fedelu = filter_dict_list(hedelu,resope)
     #
-    return(fedelu)
+    return(hedelu)
     #
 #
 def insert_into_lesson(valusa):
