@@ -176,7 +176,7 @@ def select_from_lesson(resope):
     #
     hedelu = get_info_dict_list()
     #
-    #fedelu = filter_dict_list(hedelu,resope)
+    fedelu = filter_dict_list(hedelu,resope)
     #
     #print("sele")
     #print(hedelu)
