@@ -503,9 +503,12 @@ def get_select(hid,options,classes):
     #
     return(le)
 #
-def get_date_input():
+def get_date_input(classes):
     #
+    le = ""
+    le += f'<input type="date" class="{classes}">'
     #
+    return(le)
 #
 def get_insert_block():
     #
