@@ -532,7 +532,7 @@ def get_preoption(tname):
     elif(True):
         ne = ""
     #
-    le += f'<option data-id="0" selected disabled>{ne}'
+    le += f'<option data-id="0" selected>{ne}'
     le += "</option>"
     #
     return(le)
