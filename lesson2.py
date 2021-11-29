@@ -409,7 +409,18 @@ def get_dict_from_table(tname):
     #
     cursor = connection.cursor()
     #
-    sql = f"SELECT * FROM {tname};"
+    if(False):
+        hode = "id"
+    elif(tname=="subject"):
+        hode = "short_name"
+    elif(tname=="teacher"):
+        hode = "short_name"
+    elif(tname=="cabinet"):
+        hode = "short_name"
+    elif(True):
+        hode = "id"
+    #
+    sql = f"SELECT * FROM {tname} ORDER BY {hode};"
     cursor.execute(sql)
     result = cursor.fetchall()
     #
