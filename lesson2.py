@@ -11,7 +11,7 @@ import time
 _db_user = "ipott_user"
 _db_password = "ipott_pass"
 _db_name = "ipott_db"
-_pattern = "lesson.html"
+_pattern = "lesson2.html"
 #
 def menene():
     #
