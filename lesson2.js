@@ -150,7 +150,7 @@ function get_value_of_date_input(daluhe,pa) {
   let daluheva = pa.querySelector(seleko).value;
   daluheva = daluheva.replace(/-/g,".");
   //
-  console.log(daluheva);
+  //console.log(daluheva);
   //
   let daluheha = null;
   //
@@ -177,8 +177,11 @@ function get_value_of_select(daluhe,pa) {
   let daluheva = pa.querySelector(seleko);
   let daluheme = daluheva.options[daluheva.selectedIndex];
   let daluheha = daluheme.dataset.id;
-  console.log(daluheme.text);
-  console.log(daluheha);
+  //
+  //console.log(daluheme.text);
+  //console.log(daluheha);
+  //
+  return(daluheha);
 }
 //
 function delete_excess_rovos() {
