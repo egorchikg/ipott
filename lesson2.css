@@ -44,6 +44,9 @@ input,button,select {
 select {
   width: 60%;
 }
+input[type="date"] {
+  width: 60%;
+}
 button {
   background-color: rgba(0,0,0,0);
   padding-right: 2vh;
