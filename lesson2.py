@@ -50,10 +50,12 @@ def get():
             lavero
         )
     #
+    '''
     lakebo = lakebo.replace(
             "<!--delete_block-->",
             denede
         )
+    '''
     #
     print(lakebo)
     #
@@ -417,21 +419,6 @@ def get_dict_from_table(tname):
     return(result)
     #
 #
-def get_day_datalist():
-    #
-    tname = "day"
-    tdict = get_dict_from_table(tname)
-    leseke = ""
-    leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rnm = rova["name"]
-        leseke += f'<option data-id="{rid}">{rnm}</option>'
-    #
-    leseke += '</datalist>'
-    #
-    return(leseke)
-#
 def get_search_input(tname,phold,cla,disabled=False):
     #
     leseke = ""
@@ -451,90 +438,52 @@ def get_hidden_input(value,cla):
     #
     return(leseke)
 #
-def get_class_datalist():
+def get_options(tname):
     #
-    tname = "class"
     tdict = get_dict_from_table(tname)
     leseke = ""
-    leseke += f'<datalist id="{tname}">'
     for rova in tdict:
         rid = rova["id"]
-        rnm = rova["short_name"]
+        rnm = ""
+        #
+        if(False):
+            rnm = ""
+        elif(tname=="day"):
+            rnm = rova["name"]
+        elif(tname=="lapse"):
+            rnm = rova["n"]
+        elif(True):
+            rnm = rova["short_name"]
+        #
         leseke += f'<option data-id="{rid}">{rnm}</option>'
     #
-    leseke += '</datalist>'
-    #
     return(leseke)
+    #
 #
-def get_lapse_datalist():
+def get_datalist(tname):
     #
-    tname = "lapse"
-    tdict = get_dict_from_table(tname)
     leseke = ""
     leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rnm = rova["n"]
-        leseke += f'<option data-id="{rid}">{rnm}</option>'
-    #
+    leseke += get_options(tname);
     leseke += '</datalist>'
     #
     return(leseke)
-#
-def get_subject_datalist():
     #
-    tname = "subject"
-    tdict = get_dict_from_table(tname)
-    leseke = ""
-    leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rnm = rova["short_name"]
-        leseke += f'<option data-id="{rid}">{rnm}</option>'
-    #
-    leseke += '</datalist>'
-    #
-    return(leseke)
-#
-def get_teacher_datalist():
-    #
-    tname = "teacher"
-    tdict = get_dict_from_table(tname)
-    leseke = ""
-    leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rnm = rova["short_name"]
-        leseke += f'<option data-id="{rid}">{rnm}</option>'
-    #
-    leseke += '</datalist>'
-    #
-    return(leseke)
-#
-def get_cabinet_datalist():
-    #
-    tname = "cabinet"
-    tdict = get_dict_from_table(tname)
-    leseke = ""
-    leseke += f'<datalist id="{tname}">'
-    for rova in tdict:
-        rid = rova["id"]
-        rnm = rova["short_name"]
-        leseke += f'<option data-id="{rid}">{rnm}</option>'
-    #
-    leseke += '</datalist>'
-    #
-    return(leseke)
 #
 def get_datalists():
     #
+    tnames = [
+        "day",
+        "class",
+        "lapse",
+        "subject",
+        "teacher",
+        "cabinet"
+    ]
+    #
     lesene = ""
-    lesene += get_day_datalist()
-    lesene += get_class_datalist()
-    lesene += get_lapse_datalist()
-    lesene += get_subject_datalist()
-    lesene += get_teacher_datalist()
-    lesene += get_cabinet_datalist()
+    for tname in tnames:
+        lesene += get_datalist(tname)
     #
     return(lesene)
 #
@@ -544,6 +493,19 @@ def get_button(title,cla):
     le += f'<button class="{cla}">{title}</button>'
     #
     return(le)
+#
+def get_select(hid,options,classes):
+    #
+    le = ""
+    le += f'<select id="{hid}" class="{classes}">'
+    le += options
+    le += '</select>'
+    #
+    return(le)
+#
+def get_date_input():
+    #
+    #
 #
 def get_insert_block():
     #
@@ -557,12 +519,34 @@ def get_insert_block():
     clall = " ".join(clali)
     #
     le = ""
-    le += get_search_input("day","дата",clall)
-    le += get_search_input("class","класс",clall)
-    le += get_search_input("lapse","номер урока",clall)
-    le += get_search_input("subject","предмет",clall)
-    le += get_search_input("teacher","учитель",clall)
-    le += get_search_input("cabinet","кабинет",clall)
+    #
+    le += get_date_input("day","2021.11.29",clall)
+    #
+    tname = "class"
+    hid = tname
+    options = get_options(tname)
+    le += get_select(hid,options,clall)
+    #
+    tname = "lapse"
+    hid = tname
+    options = get_options(tname)
+    le += get_select(hid,options,clall)
+    #
+    tname = "subject"
+    hid = tname
+    options = get_options(tname)
+    le += get_select(hid,options,clall)
+    #
+    tname = "teacher"
+    hid = tname
+    options = get_options(tname)
+    le += get_select(hid,options,clall)
+    #
+    tname = "cabinet"
+    hid = tname
+    options = get_options(tname)
+    le += get_select(hid,options,clall)
+    #
     le += get_button("Найти",cla1)
     le += get_button("Добавить",cla2)
     #
