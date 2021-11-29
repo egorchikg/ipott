@@ -34,9 +34,14 @@ function parse_response(resope) {
   //
 }
 //
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+//
 function hanema() {
-  document.body.classList.toggle("hanema");
-  document.body.classList.toggle("hanema");
+  let ko = document.body.classList;
+  ko.toggle("hanema");
+  sleep(1000).then(() => { ko.toggle("hanema"); });
 }
 //
 function append_ho(ho) {
