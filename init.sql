@@ -113,10 +113,10 @@ INSERT INTO day VALUES ("0","2021.11.28");
 INSERT INTO day VALUES ("0","2021.11.29");
 --
 INSERT INTO cabinet VALUES ("0","Актовый зал","акт.");
-INSERT INTO cabinet VALUES ("0","Учительская","уч.");
-INSERT INTO cabinet VALUES ("0","Улица","ул.");
 INSERT INTO cabinet VALUES ("0","Столярная мастерская","мас.");
 INSERT INTO cabinet VALUES ("0","Спортивный зал","с.з.");
+INSERT INTO cabinet VALUES ("0","Улица","ул.");
+INSERT INTO cabinet VALUES ("0","Учительская","уч.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 1","1к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 2","2к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 3","3к.");

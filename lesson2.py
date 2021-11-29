@@ -415,8 +415,6 @@ def get_dict_from_table(tname):
         hode = "short_name"
     elif(tname=="teacher"):
         hode = "short_name"
-    elif(tname=="cabinet"):
-        hode = "short_name"
     elif(True):
         hode = "id"
     #
