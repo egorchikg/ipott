@@ -1,3 +1,4 @@
+@echo off
 %apache% --start
 %mda2sql% init.mda
 %mysql% --start
