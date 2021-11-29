@@ -61,7 +61,6 @@ function append_ho(ho) {
   dale = document.querySelector("datalist#"+tname);
   class_input.innerHTML = dale.innerHTML;
   class_input.value = ho.class_name;
-  //class_input.setAttribute("value",ho.class_name);
   //
   tname = "lapse";
   let lapse_input = document.createElement('select');
@@ -70,7 +69,7 @@ function append_ho(ho) {
   lapse_input.classList.add("delete");
   dale = document.querySelector("datalist#"+tname);
   lapse_input.innerHTML = dale.innerHTML;
-  lapse_input.setAttribute("value",ho.lapse_name);
+  lapse_input.value = ho.lapse_name;
   //
   tname = "subject";
   let subject_input = document.createElement('select');
@@ -79,7 +78,7 @@ function append_ho(ho) {
   subject_input.classList.add("delete");
   dale = document.querySelector("datalist#"+tname);
   subject_input.innerHTML = dale.innerHTML;
-  subject_input.setAttribute("value",ho.subject_name);
+  subject_input.value = ho.subject_name;
   //
   tname = "teacher";
   let teacher_input = document.createElement('select');
@@ -88,7 +87,7 @@ function append_ho(ho) {
   teacher_input.classList.add("delete");
   dale = document.querySelector("datalist#"+tname);
   teacher_input.innerHTML = dale.innerHTML;
-  teacher_input.setAttribute("value",ho.teacher_name);
+  teacher_input.value = ho.teacher_name;
   //
   tname = "cabinet";
   let cabinet_input = document.createElement('select');
@@ -97,7 +96,7 @@ function append_ho(ho) {
   cabinet_input.classList.add("delete");
   dale = document.querySelector("datalist#"+tname);
   cabinet_input.innerHTML = dale.innerHTML;
-  cabinet_input.setAttribute("value",ho.cabinet_name);
+  cabinet_input.value = ho.cabinet_name;
   //
   let update_button = document.createElement('button');
   update_button.classList.add("update");
