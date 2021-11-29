@@ -45,6 +45,8 @@ select {
   width: 60%;
 }
 input[type="date"] {
+  min-width: 60%;
+  max-width: 60%;
   width: 60%;
 }
 button {
