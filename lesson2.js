@@ -35,6 +35,9 @@ function parse_response(resope) {
 //
 function append_ho(ho) {
   //
+  let tname = null;
+  let dale = null;
+  //
   let hidden_input = document.createElement('input');
   hidden_input.setAttribute("type","hidden");
   hidden_input.classList.add("update");
@@ -42,51 +45,57 @@ function append_ho(ho) {
   hidden_input.setAttribute("value",ho.lesson_id);
   //
   let day_input = document.createElement('input');
-  day_input.setAttribute("type","search");
-  day_input.setAttribute("list","day");
-  day_input.setAttribute("placeholder","дата");
+  day_input.setAttribute("type","date");
+  day_input.classList.add("day");
   day_input.classList.add("update");
   day_input.classList.add("delete");
-  day_input.setAttribute("value",ho.day_name);
+  let ho_re = ho.day_name;
+  ho_re = ho_re.replace(/./g,"-");
+  day_input.setAttribute("value",ho_re);
   //
-  let class_input = document.createElement('input');
-  class_input.setAttribute("type","search");
-  class_input.setAttribute("list","class");
-  class_input.setAttribute("placeholder","класс");
+  tname = "class";
+  let class_input = document.createElement('select');
+  class_input.classList.add(tname);
   class_input.classList.add("update");
   class_input.classList.add("delete");
+  dale = document.querySelector("datalist#"+tname);
+  class_input.innerHTML = dale.innerHTML;
   class_input.setAttribute("value",ho.class_name);
   //
+  tname = "lapse";
   let lapse_input = document.createElement('input');
-  lapse_input.setAttribute("type","search");
-  lapse_input.setAttribute("list","lapse");
-  lapse_input.setAttribute("placeholder","номер урока");
+  lapse_input.classList.add(tname);
   lapse_input.classList.add("update");
   lapse_input.classList.add("delete");
+  dale = document.querySelector("datalist#"+tname);
+  lapse_input.innerHTML = dale.innerHTML;
   lapse_input.setAttribute("value",ho.lapse_name);
   //
+  tname = "subject";
   let subject_input = document.createElement('input');
-  subject_input.setAttribute("type","search");
-  subject_input.setAttribute("list","subject");
-  subject_input.setAttribute("placeholder","предмет");
+  subject_input.classList.add(tname);
   subject_input.classList.add("update");
   subject_input.classList.add("delete");
+  dale = document.querySelector("datalist#"+tname);
+  subject_input.innerHTML = dale.innerHTML;
   subject_input.setAttribute("value",ho.subject_name);
   //
+  tname = "teacher";
   let teacher_input = document.createElement('input');
-  teacher_input.setAttribute("type","search");
-  teacher_input.setAttribute("list","teacher");
-  teacher_input.setAttribute("placeholder","учитель");
+  teacher_input.classList.add(tname);
   teacher_input.classList.add("update");
   teacher_input.classList.add("delete");
+  dale = document.querySelector("datalist#"+tname);
+  teacher_input.innerHTML = dale.innerHTML;
   teacher_input.setAttribute("value",ho.teacher_name);
   //
+  tname = "cabinet";
   let cabinet_input = document.createElement('input');
-  cabinet_input.setAttribute("type","search");
-  cabinet_input.setAttribute("list","cabinet");
-  cabinet_input.setAttribute("placeholder","кабинет");
+  cabinet_input.classList.add(tname);
   cabinet_input.classList.add("update");
   cabinet_input.classList.add("delete");
+  dale = document.querySelector("datalist#"+tname);
+  cabinet_input.innerHTML = dale.innerHTML;
   cabinet_input.setAttribute("value",ho.cabinet_name);
   //
   let update_button = document.createElement('button');
@@ -224,7 +233,7 @@ function select_button_click(event) {
     //
     console.log(hobo);
     //
-    //send_post_query(hobo,"/ipott/lesson.py",parse_response);
+    send_post_query(hobo,"/ipott/lesson.py",parse_response);
   }
   //
   delete_excess_rovos();
@@ -263,7 +272,7 @@ function insert_button_click(event) {
     //
     console.log(hobo);
     //
-    //send_post_query(hobo,"/ipott/lesson.py",parse_response);
+    send_post_query(hobo,"/ipott/lesson.py",parse_response);
     //
   } else {
     alert("Одно из полей заполнено неверно!");
@@ -281,27 +290,30 @@ function update_button_click(event) {
   //
   let command = ka;
   let lesson_id = get_value_of_hidden_input(pa);
-  let day_id = get_value_of_search_input("day",pa);
-  let class_id = get_value_of_search_input("class",pa);
-  let lapse_id = get_value_of_search_input("lapse",pa);
-  let subject_id = get_value_of_search_input("subject",pa);
-  let teacher_id = get_value_of_search_input("teacher",pa);
-  let cabinet_id = get_value_of_search_input("cabinet",pa);
+  let day_id = get_value_of_date_input("day",pa);
+  let class_id = get_value_of_select("class",pa);
+  let lapse_id = get_value_of_select("lapse",pa);
+  let subject_id = get_value_of_select("subject",pa);
+  let teacher_id = get_value_of_select("teacher",pa);
+  let cabinet_id = get_value_of_select("cabinet",pa);
   //
+  let z = 0;
   mapa.set("command",command);
   mapa.set("lesson_id",lesson_id);
-  mapa.set("day_id",day_id);
-  mapa.set("class_id",class_id);
-  mapa.set("lapse_id",lapse_id);
-  mapa.set("subject_id",subject_id);
-  mapa.set("teacher_id",teacher_id);
-  mapa.set("cabinet_id",cabinet_id);
+  if(day_id!=null){mapa.set("day_id",day_id);z++;}
+  if(class_id!=null){mapa.set("class_id",class_id);z++;}
+  if(lapse_id!=null){mapa.set("lapse_id",lapse_id);z++;}
+  if(subject_id!=null){mapa.set("subject_id",subject_id);z++;}
+  if(teacher_id!=null){mapa.set("teacher_id",teacher_id);z++;}
+  if(cabinet_id!=null){mapa.set("cabinet_id",cabinet_id);z++;}
   //
-  let hobo = Object.fromEntries(mapa);
-  //
-  console.log(hobo);
-  //
-  send_post_query(hobo,"/ipott/lesson.py",parse_response);
+  if(z == 6) {
+    let hobo = Object.fromEntries(mapa);
+    //
+    console.log(hobo);
+    //
+    send_post_query(hobo,"/ipott/lesson.py",parse_response);
+  }
 }
 //
 function delete_button_click(event) {
