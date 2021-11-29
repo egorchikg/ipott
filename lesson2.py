@@ -494,19 +494,21 @@ def get_button(title,cla):
     #
     return(le)
 #
-def get_select(hid,options,classes):
+def get_select(hopote,kale):
     #
+    kalese = " ".join(kale)
     le = ""
-    le += f'<select id="{hid}" class="{classes}">'
-    le += options
+    le += f'<select class="{kalese}">'
+    le += hopote
     le += '</select>'
     #
     return(le)
 #
-def get_date_input(classes):
+def get_date_input(kale):
     #
+    kalese = " ".join(kale)
     le = ""
-    le += f'<input type="date" class="{classes}">'
+    le += f'<input type="date" class="{kalese}">'
     #
     return(le)
 #
@@ -523,32 +525,24 @@ def get_insert_block():
     #
     le = ""
     #
-    le += get_date_input("day","2021.11.29",clall)
+    kale = list(clali)
+    kale.insert(0,"day")
+    le += get_date_input(kale)
     #
-    tname = "class"
-    hid = tname
-    options = get_options(tname)
-    le += get_select(hid,options,clall)
+    tnames = [
+        "class",
+        "lapse",
+        "subject",
+        "teacher",
+        "cabinet"
+    ]
     #
-    tname = "lapse"
-    hid = tname
-    options = get_options(tname)
-    le += get_select(hid,options,clall)
-    #
-    tname = "subject"
-    hid = tname
-    options = get_options(tname)
-    le += get_select(hid,options,clall)
-    #
-    tname = "teacher"
-    hid = tname
-    options = get_options(tname)
-    le += get_select(hid,options,clall)
-    #
-    tname = "cabinet"
-    hid = tname
-    options = get_options(tname)
-    le += get_select(hid,options,clall)
+    lesene = ""
+    for tname in tnames:
+        kale = list(clali)
+        kale.insert(0,tname)
+        hopote = get_options(kale[0])
+        le += get_select(hopote,kale)
     #
     le += get_button("Найти",cla1)
     le += get_button("Добавить",cla2)
