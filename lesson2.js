@@ -190,7 +190,11 @@ function get_value_of_select(daluhe,pa) {
   //console.log(daluheme.text);
   //console.log(daluheha);
   //
-  return(daluheha);
+  if(daluheha == 0) {
+    return(null);
+  } else {
+    return(daluheha);
+  }
 }
 //
 function delete_excess_rovos() {
