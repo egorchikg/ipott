@@ -50,7 +50,7 @@ function append_ho(ho) {
   day_input.classList.add("update");
   day_input.classList.add("delete");
   let ho_re = ho.day_name;
-  ho_re = ho_re.replace(/./g,"-");
+  ho_re = ho_re.replace(/[.]/g,"-");
   day_input.setAttribute("value",ho_re);
   //
   tname = "class";
@@ -63,7 +63,7 @@ function append_ho(ho) {
   class_input.setAttribute("value",ho.class_name);
   //
   tname = "lapse";
-  let lapse_input = document.createElement('input');
+  let lapse_input = document.createElement('select');
   lapse_input.classList.add(tname);
   lapse_input.classList.add("update");
   lapse_input.classList.add("delete");
@@ -72,7 +72,7 @@ function append_ho(ho) {
   lapse_input.setAttribute("value",ho.lapse_name);
   //
   tname = "subject";
-  let subject_input = document.createElement('input');
+  let subject_input = document.createElement('select');
   subject_input.classList.add(tname);
   subject_input.classList.add("update");
   subject_input.classList.add("delete");
@@ -81,7 +81,7 @@ function append_ho(ho) {
   subject_input.setAttribute("value",ho.subject_name);
   //
   tname = "teacher";
-  let teacher_input = document.createElement('input');
+  let teacher_input = document.createElement('select');
   teacher_input.classList.add(tname);
   teacher_input.classList.add("update");
   teacher_input.classList.add("delete");
@@ -90,7 +90,7 @@ function append_ho(ho) {
   teacher_input.setAttribute("value",ho.teacher_name);
   //
   tname = "cabinet";
-  let cabinet_input = document.createElement('input');
+  let cabinet_input = document.createElement('select');
   cabinet_input.classList.add(tname);
   cabinet_input.classList.add("update");
   cabinet_input.classList.add("delete");
