@@ -60,7 +60,8 @@ function append_ho(ho) {
   class_input.classList.add("delete");
   dale = document.querySelector("datalist#"+tname);
   class_input.innerHTML = dale.innerHTML;
-  class_input.setAttribute("value",ho.class_name);
+  class_input.value = ho.class_name;
+  //class_input.setAttribute("value",ho.class_name);
   //
   tname = "lapse";
   let lapse_input = document.createElement('select');
@@ -173,9 +174,11 @@ function get_value_of_date_input(daluhe,pa) {
     }
   }
   //
+  /*
   if(daluheha == null) {
     alert("Даты "+daluheva+" нет в базе данных!");
   }
+  */
   return(daluheha);
   //
 }
