@@ -241,27 +241,33 @@ function insert_button_click(event) {
   //
   let command = ka;
   let lesson_id = "0";
-  let day_id = get_value_of_search_input("day",pa);
-  let class_id = get_value_of_search_input("class",pa);
-  let lapse_id = get_value_of_search_input("lapse",pa);
-  let subject_id = get_value_of_search_input("subject",pa);
-  let teacher_id = get_value_of_search_input("teacher",pa);
-  let cabinet_id = get_value_of_search_input("cabinet",pa);
+  let day_id = get_value_of_date_input("day",pa);
+  let class_id = get_value_of_select("class",pa);
+  let lapse_id = get_value_of_select("lapse",pa);
+  let subject_id = get_value_of_select("subject",pa);
+  let teacher_id = get_value_of_select("teacher",pa);
+  let cabinet_id = get_value_of_select("cabinet",pa);
   //
+  let z = 0;
   mapa.set("command",command);
   mapa.set("lesson_id",lesson_id);
-  mapa.set("day_id",day_id);
-  mapa.set("class_id",class_id);
-  mapa.set("lapse_id",lapse_id);
-  mapa.set("subject_id",subject_id);
-  mapa.set("teacher_id",teacher_id);
-  mapa.set("cabinet_id",cabinet_id);
+  if(day_id!=null){mapa.set("day_id",day_id);z++;}
+  if(class_id!=null){mapa.set("class_id",class_id);z++;}
+  if(lapse_id!=null){mapa.set("lapse_id",lapse_id);z++;}
+  if(subject_id!=null){mapa.set("subject_id",subject_id);z++;}
+  if(teacher_id!=null){mapa.set("teacher_id",teacher_id);z++;}
+  if(cabinet_id!=null){mapa.set("cabinet_id",cabinet_id);z++;}
   //
-  let hobo = Object.fromEntries(mapa);
-  //
-  console.log(hobo);
-  //
-  send_post_query(hobo,"/ipott/lesson.py",parse_response);
+  if(z == 6) {
+    let hobo = Object.fromEntries(mapa);
+    //
+    console.log(hobo);
+    //
+    //send_post_query(hobo,"/ipott/lesson.py",parse_response);
+    //
+  } else {
+    alert("Одно из полей заполнено неверно!");
+  }
 }
 //
 function update_button_click(event) {
