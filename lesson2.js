@@ -144,6 +144,39 @@ function get_value_of_search_input(daluhe,pa) {
   //
 }
 //
+function get_value_of_date_input(daluhe,pa) {
+  //
+  let seleko = "."+daluhe;
+  let daluheva = pa.querySelector(seleko).value;
+  //
+  console.log(daluheva);
+  //
+  let daluheha = null;
+  //
+  seleko = "#"+daluhe+" option";
+  let hopotezu = document.querySelectorAll(seleko);
+  //
+  for(const hopotene of hopotezu) {
+    if(hopotene.value == daluheva) {
+      daluheha = hopotene.dataset.id;
+      break;
+    }
+  }
+  //
+  if(daluheha == null) {
+    alert("Даты "+daluheva+" нет в базе данных!");
+  }
+  return(daluheha);
+  //
+}
+//
+function get_value_of_select(daluhe,pa) {
+  //
+  let seleko = "."+daluhe;
+  let daluheva = pa.querySelector(seleko).value;
+  console.log(daluheva);
+}
+//
 function delete_excess_rovos() {
   let rovos = document.querySelectorAll(".rovo");
   for(let rovo of rovos) {
@@ -163,12 +196,12 @@ function select_button_click(event) {
   //alert(ka);
   //
   let command = ka;
-  let day_id = get_value_of_search_input("day",pa);
-  let class_id = get_value_of_search_input("class",pa);
-  let lapse_id = get_value_of_search_input("lapse",pa);
-  let subject_id = get_value_of_search_input("subject",pa);
-  let teacher_id = get_value_of_search_input("teacher",pa);
-  let cabinet_id = get_value_of_search_input("cabinet",pa);
+  let day_id = get_value_of_date_input("day",pa);
+  let class_id = get_value_of_select("class",pa);
+  let lapse_id = get_value_of_select("lapse",pa);
+  let subject_id = get_value_of_select("subject",pa);
+  let teacher_id = get_value_of_select("teacher",pa);
+  let cabinet_id = get_value_of_select("cabinet",pa);
   //
   let z = 0;
   mapa.set("command",command);
@@ -184,7 +217,7 @@ function select_button_click(event) {
     //
     console.log(hobo);
     //
-    send_post_query(hobo,"/ipott/lesson.py",parse_response);
+    //send_post_query(hobo,"/ipott/lesson.py",parse_response);
   }
   //
   delete_excess_rovos();
