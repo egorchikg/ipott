@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: monospace;
+  background-color: #325987;
+}
+.select {
+  background-color: #FFE973;
+  border: 0.5vh solid #FFE973;
+}
+.insert {
+  background-color: #B7F4AA;
+}
+.update {
+  background-color: #66A1D2;
+  border: 0.5vh solid #66A1D2;
+}
+.delete {
+  background-color: #F791B8;
+}
+.rovo {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+input,button {
+  -webkit-appearance: none;
+  background-color: none;
+  outline: none;
+  border: none;
+  width: auto;
+  min-width: 0;
+  height: 5vh;
+  text-align: center;
+  font-size: 2.5vh;
+  box-sizing: border-box;
+  font-family: monospace;
+  margin-top: 3vh;
+  border-radius: 2vh;
+}
+button {
+  background-color: rgba(0,0,0,0);
+  padding-right: 2vh;
+  padding-left: 2vh;
+}
+input[type="search"] {
+  -webkit-appearance: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+datalist {
+  border: none;
+  overflow-x: none;
+  overflow-y: scroll;
+}
+datalist::-webkit-scrollbar { width: 0; height: 0; }
