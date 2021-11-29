@@ -170,7 +170,7 @@ INSERT INTO subject VALUES ("0","Обществознание","Общ.");
 INSERT INTO subject VALUES ("0","Экономика","Экономика");
 INSERT INTO subject VALUES ("0","Право","Право");
 INSERT INTO subject VALUES ("0","-","-");
-INSERT INTO subject VALUES ("0","Классный час","Кл.ч");
+INSERT INTO subject VALUES ("0","Классный час","Кл.ч.");
 INSERT INTO subject VALUES ("0","Родной язык","Родн.яз.");
 INSERT INTO subject VALUES ("0","Родная литература","Родн.лит.");
 INSERT INTO subject VALUES ("0","Информатика","Инф.");
