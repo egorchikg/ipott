@@ -148,7 +148,7 @@ function get_value_of_date_input(daluhe,pa) {
   //
   let seleko = "."+daluhe;
   let daluheva = pa.querySelector(seleko).value;
-  daluheva = daluheva.replace("-",".");
+  daluheva = daluheva.replace(/-/g,".");
   //
   console.log(daluheva);
   //
