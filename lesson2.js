@@ -148,6 +148,7 @@ function get_value_of_date_input(daluhe,pa) {
   //
   let seleko = "."+daluhe;
   let daluheva = pa.querySelector(seleko).value;
+  daluheva = daluheva.replace("-",".");
   //
   console.log(daluheva);
   //
@@ -172,9 +173,12 @@ function get_value_of_date_input(daluhe,pa) {
 //
 function get_value_of_select(daluhe,pa) {
   //
-  let seleko = "."+daluhe;
-  let daluheva = pa.querySelector(seleko).value;
-  console.log(daluheva);
+  let seleko = "select."+daluhe;
+  let daluheva = pa.querySelector(seleko);
+  let daluheme = daluheva.options[daluheva.selectedIndex];
+  let daluheha = daluheme.dataset.id;
+  console.log(daluheme.text);
+  console.log(daluheha);
 }
 //
 function delete_excess_rovos() {
