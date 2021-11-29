@@ -112,11 +112,6 @@ INSERT INTO day VALUES ("0","2021.11.27");
 INSERT INTO day VALUES ("0","2021.11.28");
 INSERT INTO day VALUES ("0","2021.11.29");
 --
-INSERT INTO cabinet VALUES ("0","Актовый зал","акт.");
-INSERT INTO cabinet VALUES ("0","Столярная мастерская","мас.");
-INSERT INTO cabinet VALUES ("0","Спортивный зал","с.з.");
-INSERT INTO cabinet VALUES ("0","Улица","ул.");
-INSERT INTO cabinet VALUES ("0","Учительская","уч.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 1","1к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 2","2к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 3","3к.");
@@ -144,6 +139,11 @@ INSERT INTO cabinet VALUES ("0","Кабинет № 24","24к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 25","25к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 26","26к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 27","27к.");
+INSERT INTO cabinet VALUES ("0","Актовый зал","акт.");
+INSERT INTO cabinet VALUES ("0","Столярная мастерская","мас.");
+INSERT INTO cabinet VALUES ("0","Спортивный зал","с.з.");
+INSERT INTO cabinet VALUES ("0","Улица","ул.");
+INSERT INTO cabinet VALUES ("0","Учительская","уч.");
 --
 INSERT INTO subject VALUES ("0","Физкультура","Физ-ра");
 INSERT INTO subject VALUES ("0","Литература","Литература");
