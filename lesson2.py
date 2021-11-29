@@ -512,6 +512,32 @@ def get_date_input(kale):
     #
     return(le)
 #
+def get_preoption(tname):
+    #
+    le = ""
+    ne = ""
+    #
+    if(False):
+        ne = ""
+    elif(tname=="class"):
+        ne = "класс"
+    elif(tname=="lapse"):
+        ne = "номер урока"
+    elif(tname=="subject"):
+        ne = "предмет"
+    elif(tname=="teacher"):
+        ne = "учитель"
+    elif(tname=="cabinet"):
+        ne = "кабинет"
+    elif(True):
+        ne = ""
+    #
+    le += f'<option data-id="0" selected disabled>{ne}'
+    le += "</option>"
+    #
+    return(le)
+    #
+#
 def get_insert_block():
     #
     cla1 = "select"
@@ -541,7 +567,9 @@ def get_insert_block():
     for tname in tnames:
         kale = list(clali)
         kale.insert(0,tname)
-        hopote = get_options(kale[0])
+        hopote = ""
+        hopote += get_preoption(kale[0])
+        hopote += get_options(kale[0])
         le += get_select(hopote,kale)
     #
     le += get_button("Найти",cla1)
