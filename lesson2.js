@@ -23,7 +23,8 @@ function parse_response(resope) {
     if(false) {
       console.log();
     } else if(ho.command == "alert") {
-      alert(ho.message);
+      //alert(ho.message);
+      hanema();
     } else if(ho.command == "append") {
       console.log("append");
       append_ho(ho);
@@ -31,6 +32,11 @@ function parse_response(resope) {
     console.log(ho);
   }
   //
+}
+//
+function hanema() {
+  body.classList.remove("hanema");
+  body.classList.add("hanema");
 }
 //
 function append_ho(ho) {

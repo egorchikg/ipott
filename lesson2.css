@@ -3,6 +3,12 @@ body {
   font-family: monospace;
   background-color: #325987;
 }
+.hanema {
+  background-color: #AD310B;
+  -webkit-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+}
 .select {
   background-color: #FFE973;
   border: 0.5vh solid #FFE973;
