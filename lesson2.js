@@ -35,8 +35,8 @@ function parse_response(resope) {
 }
 //
 function hanema() {
-  body.classList.remove("hanema");
-  body.classList.add("hanema");
+  document.body.classList.remove("hanema");
+  document.body.classList.add("hanema");
 }
 //
 function append_ho(ho) {
