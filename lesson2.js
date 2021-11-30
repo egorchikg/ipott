@@ -28,6 +28,7 @@ function parse_response(resope) {
     } else if(ho.command == "append") {
       console.log("append");
       append_ho(ho);
+      hanema();
     }
     console.log(ho);
   }
