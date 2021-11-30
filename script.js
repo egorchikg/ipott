@@ -88,7 +88,11 @@ function keydown(event) {
 function load_dom() {
   convert_main_to_book();
   scroll_to_next_page();
-  //setInterval(scroll_to_next_page, 15000);
+  //
+  let hurala = window.location.search.substring(1);
+  if(hurala.includes("le=1")) {
+    setInterval(scroll_to_next_page, 15000);
+  }
 }
 //
 document.addEventListener("keydown",keydown);
