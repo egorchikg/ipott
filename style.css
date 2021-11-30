@@ -7,7 +7,7 @@
   /*--color6: #FFCE80;*/
   --color6: #FFDAA0;
   --color7: #F398B1;
-  --lh: 9px;
+  --lh: 3vmin;
 }
 td {
   text-align: center;
@@ -25,7 +25,8 @@ table {
   padding: calc(var(--lh)*1);
   padding-bottom: none;
 }
-.main{ 
+.main{
+  visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
