@@ -7,7 +7,7 @@
   /*--color6: #FFCE80;*/
   --color6: #FFDAA0;
   --color7: #F398B1;
-  --lh: 3vmin;
+  --lh: 1vmin;
 }
 td {
   text-align: center;
@@ -26,8 +26,7 @@ table {
   padding-bottom: none;
 }
 .main{
-  visibility: hidden;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: row;
