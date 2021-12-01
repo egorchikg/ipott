@@ -105,12 +105,12 @@ REFERENCES class(id)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 --
-INSERT INTO day VALUES ("0","2021.11.24");
-INSERT INTO day VALUES ("0","2021.11.25");
-INSERT INTO day VALUES ("0","2021.11.26");
-INSERT INTO day VALUES ("0","2021.11.27");
-INSERT INTO day VALUES ("0","2021.11.28");
 INSERT INTO day VALUES ("0","2021.11.29");
+INSERT INTO day VALUES ("0","2021.11.30");
+INSERT INTO day VALUES ("0","2021.12.01");
+INSERT INTO day VALUES ("0","2021.11.02");
+INSERT INTO day VALUES ("0","2021.11.03");
+INSERT INTO day VALUES ("0","2021.11.04");
 --
 INSERT INTO cabinet VALUES ("0","Кабинет № 1","1к.");
 INSERT INTO cabinet VALUES ("0","Кабинет № 2","2к.");
@@ -189,6 +189,16 @@ INSERT INTO lapse VALUES ("0","5","12:30","13:15");
 INSERT INTO lapse VALUES ("0","6","13:25","14:10");
 INSERT INTO lapse VALUES ("0","7","14:15","15:00");
 --
+INSERT INTO class VALUES ("0","1 А","1а");
+INSERT INTO class VALUES ("0","1 Б","1б");
+INSERT INTO class VALUES ("0","2 А","2а");
+INSERT INTO class VALUES ("0","2 Б","2б");
+INSERT INTO class VALUES ("0","3 А","3а");
+INSERT INTO class VALUES ("0","3 Б","3б");
+INSERT INTO class VALUES ("0","3 В","3в");
+INSERT INTO class VALUES ("0","4 А","4а");
+INSERT INTO class VALUES ("0","4 Б","4б");
+INSERT INTO class VALUES ("0","4 В","4в");
 INSERT INTO class VALUES ("0","5 А","5а");
 INSERT INTO class VALUES ("0","5 Б","5б");
 INSERT INTO class VALUES ("0","6 А","6а");
