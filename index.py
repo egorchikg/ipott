@@ -71,9 +71,11 @@ def get_day_rela(day):
     #
     day_rela = ""
     #
-    dt = datetime.date.today()
-    toda = str(dt.year)+"."+str(dt.month)+"."+str(dt.day)
-    tomo = str(dt.year)+"."+str(dt.month)+"."+str(dt.day+1)
+    da = datetime.date.today()
+    toda = da.strftime("%Y.%m.%d")
+    #
+    da = da+datetime.timedelta(days=1)
+    tomo = da.strftime("%Y.%m.%d")
     #
     if(day == toda):
         day_rela = "Сегодня"
@@ -86,8 +88,11 @@ def get_near_days_list(dt):
     #
     nedalu = []
     #
-    toda = str(dt.year)+"."+str(dt.month)+"."+str(dt.day)
-    tomo = str(dt.year)+"."+str(dt.month)+"."+str(dt.day+1)
+    da = datetime.date.today()
+    toda = da.strftime("%Y.%m.%d")
+    #
+    da = da+datetime.timedelta(days=1)
+    tomo = da.strftime("%Y.%m.%d")
     #
     nedalu.append(toda)
     nedalu.append(tomo)
