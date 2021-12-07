@@ -109,14 +109,14 @@ def get_info_list(da):
     else:
         dt = datetime.datetime.strptime(da,"%Y.%m.%d")
     #
-    print(da)
+    #print(da)
     #
     nedalu = get_near_days_list(dt)
     kalalu = get_class_ids()
     #
-    print(nedalu)
+    #print(nedalu)
     #print(kalalu)
-    exit()
+    #exit()
     #
     hedelu = get_info_dict_list()
     #
