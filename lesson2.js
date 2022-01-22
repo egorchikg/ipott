@@ -54,7 +54,7 @@ function hanema() {
 function append_cloneho() {
   let cloneday_input = document.createElement('input');
   cloneday_input.setAttribute("type","date");
-  cloneday_input.classList.add("clone-day");
+  cloneday_input.classList.add("day");
   cloneday_input.classList.add("clone");
   //
   let clone_button = document.createElement('button');
@@ -412,7 +412,7 @@ function clone_button_click(event) {
   //
   let rovos = document.querySelectorAll(".rovo");
   //
-  let cloneday_id = get_value_of_date_input("clone-day",pa);
+  let cloneday_id = get_value_of_date_input("day",pa);
   //
   for(let rovo of rovos) {
     if(!rovo.classList.contains("first")) {
