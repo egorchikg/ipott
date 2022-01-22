@@ -424,6 +424,7 @@ function clone_button_click(event) {
         //
         hobo.day_id = cloneday_id;
         //
+        console.log(rovo)
         console.log(hobo);
         //
         //se_hobo(hobo);
