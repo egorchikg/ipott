@@ -64,6 +64,7 @@ function append_cloneho() {
   //
   let rovo_div = document.createElement('div');
   rovo_div.classList.add("rovo");
+  rovo_div.classList.add("last");
   rovo_div.append(cloneday_input);
   rovo_div.append(clone_button);
   //
@@ -414,17 +415,21 @@ function clone_button_click(event) {
   let cloneday_id = get_value_of_date_input("clone-day",pa);
   //
   for(let rovo of rovos) {
-    //
-    let mapa = new Map();
-    //
-    let hobo = pepe_hobo(rovo);
-    //
-    hobo.day_id = cloneday_id;
-    //
-    console.log(hobo);
-    //
-    //se_hobo(hobo);
-    //
+    if(!rovo.classList.contains("first")) {
+      if(!rovo.classList.contains("last")) {
+        //
+        let mapa = new Map();
+        //
+        let hobo = pepe_hobo(rovo);
+        //
+        hobo.day_id = cloneday_id;
+        //
+        console.log(hobo);
+        //
+        //se_hobo(hobo);
+        //
+      }
+    }
   }
 }
 //
