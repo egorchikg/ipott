@@ -17,6 +17,7 @@ async function send_post_query (
 //
 function parse_response(resope) {
   //
+  let append_was = false;
   let hobo = JSON.parse(resope);
   //
   for(let ho of hobo) {
@@ -26,11 +27,16 @@ function parse_response(resope) {
       //alert(ho.message);
       hanema();
     } else if(ho.command == "append") {
+      append_was = true;
       console.log("append");
       append_ho(ho);
       hanema();
     }
     console.log(ho);
+  }
+  //
+  if(append_was) {
+    append_cloneho();
   }
   //
 }
@@ -45,6 +51,26 @@ function hanema() {
   sleep(1000).then(() => { ko.toggle("hanema"); });
 }
 //
+function append_cloneho() {
+  let cloneday_input = document.createElement('input');
+  cloneday_input.setAttribute("type","date");
+  cloneday_input.classList.add("clone-day");
+  cloneday_input.classList.add("clone");
+  //
+  let clone_button = document.createElement('button');
+  clone_button.classList.add("clone");
+  clone_button.addEventListener("click",clone_button_click);
+  clone_button.innerHTML = "Клонировать";
+  //
+  let rovo_div = document.createElement('div');
+  rovo_div.classList.add("rovo");
+  rovo_div.append(cloneday_input);
+  rovo_div.append(clone_button);
+  //
+  let sc = document.body.querySelector("script");
+  let rovo_in = document.body.insertBefore(rovo_div,sc);
+  //
+}
 function append_ho(ho) {
   //
   let tname = null;
@@ -257,10 +283,12 @@ function select_button_click(event) {
   delete_excess_rovos();
 }
 //
-function insert_button_click(event) {
-  let button = event.currentTarget;
-  let pa = button.parentNode;
+function pepe_hobo(rovo) {
+  //
+  let pa = rovo;
+  //
   let mapa = new Map();
+  let hobo = null;
   //
   //alert("hi");
   let ka = "insert";
@@ -286,15 +314,34 @@ function insert_button_click(event) {
   if(cabinet_id!=null){mapa.set("cabinet_id",cabinet_id);z++;}
   //
   if(z == 6) {
-    let hobo = Object.fromEntries(mapa);
+    hobo = Object.fromEntries(mapa);
+  }
+  return(hobo);
+}
+//
+function se_hobo(hobo) {
+  //
+  if(hobo === null) {
+    //
+    alert("Одно из полей заполнено неверно!");
+    //
+  } else {
     //
     console.log(hobo);
     //
     send_post_query(hobo,"/ipott/lesson.py",parse_response);
     //
-  } else {
-    alert("Одно из полей заполнено неверно!");
   }
+  //
+}
+//
+function insert_button_click(event) {
+  let button = event.currentTarget;
+  let rovo = button.parentNode;
+  //
+  let hobo = pepe_hobo(rovo);
+  se_hobo(hobo);
+  //
 }
 //
 function update_button_click(event) {
@@ -356,6 +403,29 @@ function delete_button_click(event) {
   send_post_query(hobo,"/ipott/lesson.py",parse_response);
   //
   pa.remove();
+}
+function clone_button_click(event) {
+  //
+  let button = event.currentTarget;
+  let pa = button.parentNode;
+  //
+  let rovos = document.querySelectorAll(".rovo");
+  //
+  let cloneday_id = get_value_of_date_input("clone-day",pa);
+  //
+  for(let rovo of rovos) {
+    //
+    let mapa = new Map();
+    //
+    let hobo = pepe_hobo(rovo);
+    //
+    hobo.day_id = cloneday_id;
+    //
+    console.log(hobo);
+    //
+    //se_hobo(hobo);
+    //
+  }
 }
 //
 /*
