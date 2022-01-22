@@ -48,7 +48,7 @@ function sleep(ms) {
 function hanema() {
   let ko = document.body.classList;
   ko.add("hanema");
-  sleep(5000).then(() => { ko.remove("hanema"); });
+  sleep(1000).then(() => { ko.remove("hanema"); });
 }
 //
 function append_cloneho() {
