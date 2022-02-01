@@ -35,6 +35,7 @@ def main():
         da = form[hara].value
     #
     info_list=get_info_list(da)
+    #print(da)
     index(info_list)
 #
 def get_class_ids():
@@ -88,7 +89,8 @@ def get_near_days_list(dt):
     #
     nedalu = []
     #
-    da = datetime.date.today()
+    #da = datetime.date.today()
+    da = dt
     toda = da.strftime("%Y.%m.%d")
     #
     da = da+datetime.timedelta(days=1)
