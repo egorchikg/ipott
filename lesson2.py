@@ -115,7 +115,7 @@ def add_new_dates():
     #
     cursor = connection.cursor()
     #
-    dale = get_near_days(7)
+    dale = get_near_days(30)
     #print(f"<script>console.log('{dale}');</script>")
     #
     for he in dale:
