@@ -1,0 +1,98 @@
+:root {
+  --color1: #1E62B3;
+  --color2: #325987;
+  --color3: #0A3A75;
+  /*--color4: #518FD9;*/
+  --color4: #5B67DD;
+  /*--color6: #FFCE80;*/
+  --color6: #FFDAA0;
+  --color7: #F398B1;
+  --lh: 1.5vh;
+}
+td {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid var(--color6);
+  height: calc(var(--lh)*1.3);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.info{
+  width: calc(var(--lh)*32);
+  /*background: var(--color2);*/
+  padding: calc(var(--lh)*1);
+  padding-bottom: none;
+}
+.neinfo{
+  width: 100%;
+  min-height: 90vh;
+  height: 90vh;
+  /*background: var(--color2);*/
+  padding: calc(var(--lh)*1);
+  padding-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.neinfo img {
+  height: 100%;
+}
+.main{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: calc(var(--lh)*1);
+}
+.head{
+  margin-top: 50px;
+  color: var(--color6);
+  border: 3px solid var(--color6);
+  font-size: 36px;
+  padding: 80px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+}
+.page:nth-child(2n) {
+  background-color: var(--color6);
+}
+.page:nth-child(2n+1) {
+  background-color: var(--color2);
+}
+.book {
+  padding: 0;
+  margin: 0;
+}
+body::-webkit-scrollbar { width: 0; height: 0; }
+body{
+  background-color: var(--color7);
+  /*background-size: cover;*/
+  color: var(--color6);
+  font-family: "Hack";
+  margin: 0;
+  font-size: calc(var(--lh)*1.2);
+}
+.blue {
+  background-color: var(--color1);
+}
+.green {
+  background-color: var(--color3);
+  font-size: calc(var(--lh)*1.4);
+}
+.orange {
+  background-color: var(--color4);
+  font-size: calc(var(--lh)*1.3);
+}
